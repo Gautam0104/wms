@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link.active {
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .pro-tip { background-color: #e9f5ff; border-left: 4px solid #0d6efd; padding: 10px; margin-top: 20px; border-radius: 8px; }
+        .recent-activity { background-color: white; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .maintenance-alert { background-color: #e9f5ff; padding: 10px; border-radius: 8px; border-left: 4px solid #6c757d; }
+    </style>
+          <script src="https://cdn.tailwindcss.com">
+        </script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar" class="bg-light p-3 vh-100 collapse collapse-horizontal show" >
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-4"><i class="bi bi-box-seam"></i> <span class="d-none d-md-inline">WMS</span></h4>
+                <button class="btn btn-light border-0" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            <h6 class="text-muted">MODULES</h6>
+            <a href="#" class="nav-link"><i class="bi bi-archive"></i> Inventory Management</a>
+            <nav class="nav flex-column">
+                <a href="pharmaScan.html" class="nav-link"><i class="bi bi-upc-scan"></i> PharmaScan</a>
+                <a href="product.html" class="nav-link"><i class="bi bi-bag-check"></i> Product</a>
+                <a href="#" class="nav-link"><i class="bi bi-truck"></i> Pre-Receiving</a>
+                <a href="receiving.html" class="nav-link"><i class="bi bi-box-arrow-in-down"></i> Receiving</a>
+                <a href="put_away.html" class="nav-link"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                <a href="order.html" class="nav-link"><i class="bi bi-0-circle"></i> Order</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-cart-check"></i> Picking</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-boxes"></i> Packing</a>
+                <a href="pallet.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                <a href="pallet_bulider.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                <a href="location.html" class="nav-link"><i class="bi bi-geo-alt"></i> Expedition</a>
+                <a href="shipment.html" class="nav-link"><i class="bi bi-cart-check"></i> Shipment</a>
+                <a href="#" class="nav-link"><i class="bi bi-bag-check"></i> Delivery-Last Mile</a>
+            </nav>
+            <div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding: 10px;">
+                <h6 class="text-muted">SETTINGS</h6>
+                <nav>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i> Setting</a>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i>System Setting</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center shadow-lg p-4">
+                <div class="d-flex"> <button class="btn d-md-none me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-menu-button-wide"></i></button>
+                    <h4 class="fa-2x fw-semibold"><i class="bi bi-box-seam"></i> Warehouse Management System</h4>
+                </div>
+                <div>
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-md-3">
+                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                        <div class="d-flex flex-column justify-content-start">
+                        <h5>Received Today</h5>
+                        <h3>12</h3>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center align-items-center bg-primary bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
+                        <div class="h-12 w-12 bg-blue-100 rounded-full flex items-center justify-center tempo-10b95350-90c0-59ec-bc62-70504371c089" tempoelementid="tempo-10b95350-90c0-59ec-bc62-70504371c089">
+                            <svg style="color:blue;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="lucide lucide-trending-up h-6 w-6 text-blue-600 tempo-a7799954-bfa8-55a8-a79f-affb3b504ca7" tempoelementid="tempo-a7799954-bfa8-55a8-a79f-affb3b504ca7">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13">
+
+                                </polyline></svg></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                        <div class="d-flex flex-column justify-content-start">
+                        <h5>Pending Put-away</h5>
+                        <h3 class="text-warning">8</h3>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center bg-warning bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
+                            <div class="h-12 w-12 bg-amber-100 rounded-full flex items-center justify-center tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39" tempoelementid="tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39">
+                                <svg style="color:rgb(216, 147, 20);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-circle-alert h-6 w-6 text-amber-600 tempo-b1dc0a00-dcfe-5f2f-9d92-d2b536f68229" tempoelementid="tempo-b1dc0a00-dcfe-5f2f-9d92-d2b536f68229">
+                                    <circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16">
+
+                                    </line></svg></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                        <div class="d-flex flex-column justify-content-start">
+                        <h5>Orders to Fulfill</h5>
+                        <h3 class="text-success">15</h3>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center bg-success bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
+                            <div class="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804" tempoelementid="tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804">
+                                <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-users h-6 w-6 text-green-600 tempo-19584b9c-a5cf-52f0-b928-c39c7f299d45" tempoelementid="tempo-19584b9c-a5cf-52f0-b928-c39c7f299d45">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87">
+
+                                    </path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                        <div class="d-flex flex-column justify-content-start">
+                        <h5>Pallets Built</h5>
+                        <h3 class="text-primary">5</h3>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center align-items-center bg-secondary bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
+                        <div class="h-12 w-12 bg-purple-100 rounded-full flex items-center justify-center tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681" tempoelementid="tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681">
+                            <svg style="color:purple;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="lucide lucide-bar-chart2 h-6 w-6 text-purple-600 tempo-adcb81de-5933-57ac-9bf3-b8a2f9b37457" tempoelementid="tempo-adcb81de-5933-57ac-9bf3-b8a2f9b37457">
+                                <line x1="18" x2="18" y1="20" y2="10"></line><line x1="12" x2="12" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="14"></line>
+                            </svg></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-container card p-4">
+                <h4>Warehouse Management Modules</h4>
+                <div class="row">
+                    <div class="col-md-3" >
+                        <div class="card p-3 text-center" style="height: 25vh;">
+                            <i class="bi bi-box-seam display-4"></i>
+                            <h5>Receiving Module</h5>
+                            <p>Scan incoming shipments and match expected invoices.</p>
+                            <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3" >
+                        <div class="card p-3 text-center" style="height: 25vh;">
+                            <i class="bi bi-arrow-left-right display-4"></i>
+                            <h5>Put-away Module</h5>
+                            <p>Assign storage locations for received items.</p>
+                            <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center" style="height: 25vh;">
+                            <i class="bi bi-cart display-4"></i>
+                            <h5>Picking/Packing</h5>
+                            <p>Streamlined scanning workflow for order fulfillment.</p>
+                            <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card p-3 text-center" style="height: 25vh;">
+                            <i class="bi bi-box display-4"></i>
+                            <h5>Pallet Builder</h5>
+                            <p>Consolidated shipping preparation with scan-to-confirm.</p>
+                            <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <strong>Pro Tip:</strong> Use the barcode scanner to quickly process items through each module.
+                </div>
+            </div>
+
+            <div class="my-4 row card p-2 d-flex flex-row mx-1">
+                <div class="col-1 d-flex align-items-center justify-content-end">
+                    <span class="text-primary"><i class="bi bi-upc-scan"></i></span>
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-start">
+                    <h4>Quick Barcode Scanner</h4>
+                    <p>Scan any item or location barcode for quick access</p>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    <button class="btn btn-outline-primary h-50">Show Scanner</button>
+                </div>
+
+
+            </div>
+            <div class="my-4 card p-2 d-flex flex-row row mx-1">
+                <div class="col-6 d-flex justify-content-center align-items-center card shadow-lg p-1">
+                    <span>Recent Activity</span>
+                </div>
+                <div class="col-6 d-flex justify-content-center align-items-center">
+                    <span>Analytic</span>
+                </div>
+            </div>
+            <div class="my-4 card p-4">
+                <h4>Recent Activity</h4>
+                <div class="recent-activity shadow-lg">
+                    <span class="text-primary">1</span>
+                    <p><strong>Shipment SHP-2024-0042 received</strong><br>25 items processed with 0 discrepancies<br><small>Today, 10:23 AM</small></p>
+                </div>
+                <div class="recent-activity shadow-lg">
+                    <span class="text-success">2</span>
+                    <p><strong>Order ORD-12345 fulfilled</strong><br>All items picked and packed successfully<br><small>Today, 9:45 AM</small></p>
+                </div>
+                <div class="recent-activity shadow-lg">
+                    <span class="text-danger">3</span>
+                    <p><strong>Inventory alert for SKU-003</strong><br>Stock level below minimum threshold<br><small>Yesterday, 4:12 PM</small></p>
+                </div>
+            </div>
+            <div class="maintenance-alert mt-4">
+                <small>System maintenance scheduled for Sunday, June 18th from 2:00 AM to 4:00 AM EST.</small>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        });
+    </script> 
+</body>
+</html>
