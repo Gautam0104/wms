@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link.active {
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .pro-tip { background-color: #e9f5ff; border-left: 4px solid #0d6efd; padding: 10px; margin-top: 20px; border-radius: 8px; }
+        .recent-activity { background-color: white; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .maintenance-alert { background-color: #e9f5ff; padding: 10px; border-radius: 8px; border-left: 4px solid #6c757d; }
+    </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar" class="bg-light p-3 vh-100 collapse collapse-horizontal show">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-4"><i class="bi bi-box-seam"></i> <span class="d-none d-md-inline">WMS</span></h4>
+                <button class="btn btn-light border-0" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            <h6 class="text-muted">MODULES</h6>
+            <a href="#" class="nav-link"><i class="bi bi-archive"></i> Inventory Management</a>
+            <nav class="nav flex-column">
+                <a href="Vite + React + TS.html" class="nav-link"><i class="bi bi-upc-scan"></i> PharmaScan</a>
+                <a href="product.html" class="nav-link"><i class="bi bi-bag-check"></i> Product</a>
+                <a href="#" class="nav-link"><i class="bi bi-truck"></i> Pre-Receiving</a>
+                <a href="receiving.html" class="nav-link"><i class="bi bi-box-arrow-in-down"></i> Receiving</a>
+                <a href="put_away.html" class="nav-link"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                <a href="order.html" class="nav-link"><i class="bi bi-0-circle"></i> Order</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-cart-check"></i> Picking</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-boxes"></i> Packing</a>
+                <a href="pallet.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                <a href="pallet_bulider.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                <a href="location.html" class="nav-link "><i class="bi bi-geo-alt"></i> Expedition</a>
+                <a href="shipment.html" class="nav-link"><i class="bi bi-cart-check"></i> Shipment</a>
+                <a href="#" class="nav-link"><i class="bi bi-bag-check"></i> Delivery-Last Mile</a>
+            </nav>
+            <div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding: 10px;">
+                <h6 class="text-muted">SETTINGS</h6>
+                <nav>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i> Setting</a>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i>System Setting</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text">
+                <div class="d-flex"> <button class="btn d-md-none me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-menu-button-wide"></i></button>
+                    <nav class="nav flex-column">
+                        <a href="pallet.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                      </nav>
+                </div>
+                <div>
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto p-4 my-5">
+                <div class="bg-white shadow-md rounded-lg p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-box-open text-blue-500 text-2xl mr-2"></i>
+                            <h1 class="text-xl font-semibold text-blue-700">Pallet Configuration - PLT-4637</h1>
+                        </div>
+                        <div>
+                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md mr-2">Close</button>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-md">Finalize Pallet</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <div class="col-span-1">
+                            <label class="block text-gray-700">Total Weight</label>
+                            <div class="bg-gray-100 p-2 rounded-md text-center text-xl font-semibold">36.5 kg</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="block text-gray-700">Total Packages</label>
+                            <div class="bg-gray-100 p-2 rounded-md text-center text-xl font-semibold">3</div>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-gray-700">Destination</label>
+                            <div class="bg-gray-100 p-2 rounded-md text-center text-xl font-semibold">Warehouse B</div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Scan Packages</label>
+                        <input type="text" class="w-full p-2 border rounded-md" placeholder="Scan or enter package barcode">
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-gray-500">Pallet Details</div>
+                        <div>
+                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md mr-2"><i class="fas fa-barcode"></i> Scan Barcode</button>
+                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md"><i class="fas fa-plus"></i> Add Package</button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white">
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-4 border-b">Package ID</th>
+                                    <th class="py-2 px-4 border-b">Order #</th>
+                                    <th class="py-2 px-4 border-b">Weight</th>
+                                    <th class="py-2 px-4 border-b">Dimensions</th>
+                                    <th class="py-2 px-4 border-b">Status</th>
+                                    <th class="py-2 px-4 border-b">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">PKG-7823</td>
+                                    <td class="py-2 px-4 border-b">ORD-4532</td>
+                                    <td class="py-2 px-4 border-b">12.5 kg</td>
+                                    <td class="py-2 px-4 border-b">24" x 18" x 12"</td>
+                                    <td class="py-2 px-4 border-b"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full">Verified</span></td>
+                                    <td class="py-2 px-4 border-b"><button class="text-red-500"><i class="fas fa-times"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">PKG-7824</td>
+                                    <td class="py-2 px-4 border-b">ORD-4532</td>
+                                    <td class="py-2 px-4 border-b">8.3 kg</td>
+                                    <td class="py-2 px-4 border-b">18" x 12" x 10"</td>
+                                    <td class="py-2 px-4 border-b"><span class="bg-green-100 text-green-700 px-2 py-1 rounded-full">Verified</span></td>
+                                    <td class="py-2 px-4 border-b"><button class="text-red-500"><i class="fas fa-times"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">PKG-7825</td>
+                                    <td class="py-2 px-4 border-b">ORD-4533</td>
+                                    <td class="py-2 px-4 border-b">15.7 kg</td>
+                                    <td class="py-2 px-4 border-b">30" x 20" x 15"</td>
+                                    <td class="py-2 px-4 border-b"><span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Pending</span></td>
+                                    <td class="py-2 px-4 border-b"><button class="text-green-500"><i class="fas fa-check"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        });
+    </script> 
+</body>
+</html>
+
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link.active {
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .pro-tip { background-color: #e9f5ff; border-left: 4px solid #0d6efd; padding: 10px; margin-top: 20px; border-radius: 8px; }
+        .recent-activity { background-color: white; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .maintenance-alert { background-color: #e9f5ff; padding: 10px; border-radius: 8px; border-left: 4px solid #6c757d; }
+    </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar" class="bg-light p-3 vh-100 collapse collapse-horizontal show">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-4"><i class="bi bi-box-seam"></i> <span class="d-none d-md-inline">WMS</span></h4>
+                <button class="btn btn-light border-0" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            <h6 class="text-muted">MODULES</h6>
+            <a href="#" class="nav-link"><i class="bi bi-archive"></i> Inventory Management</a>
+            <nav class="nav flex-column">
+                <a href="Vite + React + TS.html" class="nav-link"><i class="bi bi-upc-scan"></i> PharmaScan</a>
+                <a href="product.html" class="nav-link"><i class="bi bi-bag-check"></i> Product</a>
+                <a href="#" class="nav-link"><i class="bi bi-truck"></i> Pre-Receiving</a>
+                <a href="receiving.html" class="nav-link"><i class="bi bi-box-arrow-in-down"></i> Receiving</a>
+                <a href="put_away.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                <a href="order.html" class="nav-link"><i class="bi bi-0-circle"></i> Order</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-cart-check"></i> Picking</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-boxes"></i> Packing</a>
+                <a href="pallet.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                <a href="pallet_bulider.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                <a href="location.html" class="nav-link "><i class="bi bi-geo-alt"></i> Expedition</a>
+                <a href="shipment.html" class="nav-link"><i class="bi bi-cart-check"></i> Shipment</a>
+                <a href="#" class="nav-link"><i class="bi bi-bag-check"></i> Delivery-Last Mile</a>
+            </nav>
+            <div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding: 10px;">
+                <h6 class="text-muted">SETTINGS</h6>
+                <nav>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i> Setting</a>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i>System Setting</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text-primary">
+                <div class="d-flex"> <button class="btn d-md-none me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-menu-button-wide"></i></button>
+                    <nav class="nav flex-column">
+                        <a href="put_away.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                      </nav>
+                </div>
+                <div>
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
+                </div>
+            </div>
+            <div class="container mx-auto p-4 my-5">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <p class="text-gray-600">Assign storage locations to received inventory items</p>
+                        </div>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-file-alt mr-2"></i> Generate Put-away Report
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-blue-100 p-4 rounded-lg flex items-center">
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold">2</h2>
+                                <p class="text-gray-600">Pending Items</p>
+                            </div>
+                            <i class="fas fa-box text-blue-500 text-3xl"></i>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg flex items-center">
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold">1</h2>
+                                <p class="text-gray-600">Stored Items</p>
+                            </div>
+                            <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+                        </div>
+                        <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold">1</h2>
+                                <p class="text-gray-600">Quarantined Items</p>
+                            </div>
+                            <i class="fas fa-exclamation-circle text-yellow-500 text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Scan Item for Put-away</label>
+                        <div class="flex">
+                            <input type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Scan or enter item barcode/SKU">
+                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-r-lg">Process Item</button>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Search by SKU or product name">
+                    </div>
+                    <div class="mb-4">
+                        <ul class="flex border-b">
+                            <li class="mr-1">
+                                <a class="bg-white inline-block py-2 px-4 text-blue-500 font-semibold" href="#">Pending</a>
+                            </li>
+                            <li class="mr-1">
+                                <a class="bg-gray-200 inline-block py-2 px-4 text-gray-500 font-semibold" href="#">Stored</a>
+                            </li>
+                            <li class="mr-1">
+                                <a class="bg-gray-200 inline-block py-2 px-4 text-gray-500 font-semibold" href="#">All Items</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white">
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-4 border-b">SKU</th>
+                                    <th class="py-2 px-4 border-b">Product Name</th>
+                                    <th class="py-2 px-4 border-b">Quantity</th>
+                                    <th class="py-2 px-4 border-b">Batch Number</th>
+                                    <th class="py-2 px-4 border-b">Status</th>
+                                    <th class="py-2 px-4 border-b">Location</th>
+                                    <th class="py-2 px-4 border-b">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">SKU-001</td>
+                                    <td class="py-2 px-4 border-b">Product Alpha</td>
+                                    <td class="py-2 px-4 border-b">25</td>
+                                    <td class="py-2 px-4 border-b">BATCH-2024-001</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <span class="bg-blue-100 text-blue-500 py-1 px-3 rounded-full text-xs">Pending</span>
+                                    </td>
+                                    <td class="py-2 px-4 border-b">Not assigned</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <button class="text-blue-500">Assign Location</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b">SKU-002</td>
+                                    <td class="py-2 px-4 border-b">Product Beta</td>
+                                    <td class="py-2 px-4 border-b">15</td>
+                                    <td class="py-2 px-4 border-b">BATCH-2024-002</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <span class="bg-blue-100 text-blue-500 py-1 px-3 rounded-full text-xs">Pending</span>
+                                    </td>
+                                    <td class="py-2 px-4 border-b">Not assigned</td>
+                                    <td class="py-2 px-4 border-b">
+                                        <button class="text-blue-500">Assign Location</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 bg-blue-100 p-4 rounded-lg">
+                        <p class="text-blue-500 flex items-center">
+                            <i class="fas fa-box mr-2"></i> Pending Put-away
+                        </p>
+                        <p class="text-gray-600">There are 2 items pending put-away. Scan items or select from the list above to assign storage locations.</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        });
+    </script> 
+</body>
+</html>
+
+
+
+

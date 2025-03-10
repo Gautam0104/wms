@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link.active {
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .pro-tip { background-color: #e9f5ff; border-left: 4px solid #0d6efd; padding: 10px; margin-top: 20px; border-radius: 8px; }
+        .recent-activity { background-color: white; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .maintenance-alert { background-color: #e9f5ff; padding: 10px; border-radius: 8px; border-left: 4px solid #6c757d; }
+    </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar" class="bg-light p-3 vh-100 collapse collapse-horizontal show">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-4"><i class="bi bi-box-seam"></i> <span class="d-none d-md-inline">WMS</span></h4>
+                <button class="btn btn-light border-0" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            <h6 class="text-muted">MODULES</h6>
+            <a href="#" class="nav-link"><i class="bi bi-archive"></i> Inventory Management</a>
+            <nav class="nav flex-column">
+                <a href="Vite + React + TS.html" class="nav-link"><i class="bi bi-upc-scan"></i> PharmaScan</a>
+                <a href="product.html" class="nav-link"><i class="bi bi-bag-check"></i> Product</a>
+                <a href="#" class="nav-link"><i class="bi bi-truck"></i> Pre-Receiving</a>
+                <a href="receiving.html" class="nav-link"><i class="bi bi-box-arrow-in-down"></i> Receiving</a>
+                <a href="put_away.html" class="nav-link"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                <a href="order.html" class="nav-link"><i class="bi bi-0-circle"></i> Order</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-cart-check"></i> Picking</a>
+                <a href="packing.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-boxes"></i> Packing</a>
+                <a href="pallet.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                <a href="pallet_bulider.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                <a href="location.html" class="nav-link "><i class="bi bi-geo-alt"></i> Expedition</a>
+                <a href="shipment.html" class="nav-link"><i class="bi bi-cart-check"></i> Shipment</a>
+                <a href="#" class="nav-link"><i class="bi bi-bag-check"></i> Delivery-Last Mile</a>
+            </nav>
+            <div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding: 10px;">
+                <h6 class="text-muted">SETTINGS</h6>
+                <nav>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i> Setting</a>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i>System Setting</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text-primary">
+                <div class="d-flex"> <button class="btn d-md-none me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-menu-button-wide"></i></button>
+                    <nav class="nav flex-column">
+                        <a href="packing.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-boxes"></i> Packing</a>
+                      </nav>
+                </div>
+                <div>
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto my-5">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                     
+                        <p class="text-gray-600">Manage order fulfillment and packing</p>
+                    </div>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md flex items-center">
+                        <i class="fas fa-barcode mr-2"></i> Scan Order Barcode
+                    </button>
+                </div>
+                <div class="mb-6">
+                    <div class="relative">
+                        <input type="text" class="w-full p-3 pl-10 border rounded-md" placeholder="Search by order ID or customer">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="bg-white shadow rounded-lg mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold">Orders Ready for Picking</h2>
+                    </div>
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="p-4">Order ID</th>
+                                <th class="p-4">Customer</th>
+                                <th class="p-4">Date</th>
+                                <th class="p-4">Items</th>
+                                <th class="p-4">Priority</th>
+                                <th class="p-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-4">ORD-12345</td>
+                                <td class="p-4">Acme Corp</td>
+                                <td class="p-4">2024-06-10</td>
+                                <td class="p-4">5</td>
+                                <td class="p-4"><span class="bg-red-500 text-white px-2 py-1 rounded">High</span></td>
+                                <td class="p-4"><button class="bg-blue-500 text-white px-4 py-2 rounded-md">Process <i class="fas fa-arrow-right ml-2"></i></button></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">ORD-12346</td>
+                                <td class="p-4">TechSolutions Inc</td>
+                                <td class="p-4">2024-06-11</td>
+                                <td class="p-4">3</td>
+                                <td class="p-4"><span class="bg-yellow-500 text-white px-2 py-1 rounded">Medium</span></td>
+                                <td class="p-4"><button class="bg-blue-500 text-white px-4 py-2 rounded-md">Process <i class="fas fa-arrow-right ml-2"></i></button></td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-4">ORD-12347</td>
+                                <td class="p-4">Global Enterprises</td>
+                                <td class="p-4">2024-06-12</td>
+                                <td class="p-4">7</td>
+                                <td class="p-4"><span class="bg-green-500 text-white px-2 py-1 rounded">Low</span></td>
+                                <td class="p-4"><button class="bg-blue-500 text-white px-4 py-2 rounded-md">Process <i class="fas fa-arrow-right ml-2"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="p-4">ORD-12348</td>
+                                <td class="p-4">Local Business LLC</td>
+                                <td class="p-4">2024-06-13</td>
+                                <td class="p-4">2</td>
+                                <td class="p-4"><span class="bg-red-500 text-white px-2 py-1 rounded">High</span></td>
+                                <td class="p-4"><button class="bg-blue-500 text-white px-4 py-2 rounded-md">Process <i class="fas fa-arrow-right ml-2"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-white shadow rounded-lg">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold">Recent Activity</h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Order ORD-12340 completed</p>
+                                <p class="text-gray-600">All items picked and packed successfully</p>
+                                <p class="text-gray-400 text-sm">Today, 10:23 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-exclamation-triangle text-yellow-500 text-xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Inventory alert for Order ORD-12342</p>
+                                <p class="text-gray-600">Item SKU-789 has insufficient stock</p>
+                                <p class="text-gray-400 text-sm">Today, 9:45 AM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Order ORD-12339 completed</p>
+                                <p class="text-gray-600">All items picked and packed successfully</p>
+                                <p class="text-gray-400 text-sm">Yesterday, 4:12 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        });
+    </script> 
+</body>
+</html>
+
+
+

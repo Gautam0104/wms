@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .sidebar .nav-link {
+            color: #333;
+        }
+        .sidebar .nav-link.active {
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .pro-tip { background-color: #e9f5ff; border-left: 4px solid #0d6efd; padding: 10px; margin-top: 20px; border-radius: 8px; }
+        .recent-activity { background-color: white; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .maintenance-alert { background-color: #e9f5ff; padding: 10px; border-radius: 8px; border-left: 4px solid #6c757d; }
+    </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-3" id="sidebar" class="bg-light p-3 vh-100 collapse collapse-horizontal show">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-4"><i class="bi bi-box-seam"></i> <span class="d-none d-md-inline">WMS</span></h4>
+                <button class="btn btn-light border-0" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+            <h6 class="text-muted">MODULES</h6>
+            <a href="#" class="nav-link"><i class="bi bi-archive"></i> Inventory Management</a>
+            <nav class="nav flex-column">
+                <a href="Vite + React + TS.html" class="nav-link"><i class="bi bi-upc-scan"></i> PharmaScan</a>
+                <a href="product.html" class="nav-link"><i class="bi bi-bag-check"></i> Product</a>
+                <a href="#" class="nav-link"><i class="bi bi-truck"></i> Pre-Receiving</a>
+                <a href="receiving.html" class="nav-link"><i class="bi bi-box-arrow-in-down"></i> Receiving</a>
+                <a href="put_away.html" class="nav-link"><i class="bi bi-arrow-down-up"></i> Put-away</a>
+                <a href="order.html" class="nav-link"><i class="bi bi-0-circle"></i> Order</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-cart-check"></i> Picking</a>
+                <a href="packing.html" class="nav-link"><i class="bi bi-boxes"></i> Packing</a>
+                <a href="pallet.html" class="nav-link"><i class="bi bi-box-arrow-in-up"></i> Pallet</a>
+                <a href="pallet_bulider.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                <a href="location.html" class="nav-link"><i class="bi bi-geo-alt"></i> Expedition</a>
+                <a href="shipment.html" class="nav-link"><i class="bi bi-cart-check"></i> Shipment</a>
+                <a href="#" class="nav-link"><i class="bi bi-bag-check"></i> Delivery-Last Mile</a>
+            </nav>
+            <div style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; padding: 10px;">
+                <h6 class="text-muted">SETTINGS</h6>
+                <nav>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i> Setting</a>
+                    <a href="#" class="nav-link"><i class="bi bi-gear me-1"></i>System Setting</a>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text-primary">
+                <div class="d-flex"> <button class="btn d-md-none me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
+                    <i class="bi bi-menu-button-wide"></i></button>
+                    <nav class="nav flex-column">
+                        <a href="pallet_bulider.html" class="nav-link bg-primary bg-opacity-25 text-primary"><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
+                      </nav>
+                </div>
+                <div>
+                    <i class="bi bi-bell-fill"></i>
+                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
+                </div>
+            </div>
+            <div class="container mx-auto p-6 my-6">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800 flex items-center">
+                           
+                        </h1>
+                        <p class="text-gray-600">Create and manage pallets for shipment</p>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700">
+                        <i class="fas fa-plus mr-2"></i> Create New Pallet
+                    </button>
+                </div>
+        
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Total Pallets</p>
+                            <p class="text-2xl font-bold text-gray-800">3</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
+                        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">In Progress</p>
+                            <p class="text-2xl font-bold text-gray-800">2</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-600">Completed</p>
+                            <p class="text-2xl font-bold text-gray-800">1</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="mb-6">
+                    <input type="text" placeholder="Search pallets by ID or destination" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+        
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="text-gray-600">
+                                <th class="py-2">Pallet ID</th>
+                                <th class="py-2">Packages</th>
+                                <th class="py-2">Weight (kg)</th>
+                                <th class="py-2">Destination</th>
+                                <th class="py-2">Created</th>
+                                <th class="py-2">Status</th>
+                                <th class="py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t">
+                                <td class="py-2">PLT-4532</td>
+                                <td class="py-2">12</td>
+                                <td class="py-2">145.8</td>
+                                <td class="py-2">Warehouse A</td>
+                                <td class="py-2">2024-06-10</td>
+                                <td class="py-2">
+                                    <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm">In Progress</span>
+                                </td>
+                                <td class="py-2">
+                                    <a href="#" class="text-blue-600 hover:underline">View</a>
+                                </td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2">PLT-4533</td>
+                                <td class="py-2">8</td>
+                                <td class="py-2">98.2</td>
+                                <td class="py-2">Distribution Center B</td>
+                                <td class="py-2">2024-06-09</td>
+                                <td class="py-2">
+                                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-sm">Completed</span>
+                                </td>
+                                <td class="py-2">
+                                    <a href="#" class="text-blue-600 hover:underline">View</a>
+                                    <a href="#" class="text-gray-600 hover:underline ml-2"><i class="fas fa-print"></i></a>
+                                </td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-2">PLT-4534</td>
+                                <td class="py-2">15</td>
+                                <td class="py-2">187.5</td>
+                                <td class="py-2">Retail Store C</td>
+                                <td class="py-2">2024-06-08</td>
+                                <td class="py-2">
+                                    <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm">In Progress</span>
+                                </td>
+                                <td class="py-2">
+                                    <a href="#" class="text-blue-600 hover:underline">View</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+                <div class="mt-6 p-4 bg-blue-100 text-blue-600 rounded-lg flex items-center">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <p>You have pallets in progress. Complete them before shipping to ensure proper inventory tracking.</p>
+                </div>
+            </div>
+    </div>
+    <script>
+        document.getElementById("toggleSidebar").addEventListener("click", function () {
+            document.getElementById("sidebar").classList.toggle("collapsed");
+        });
+    </script> 
+</body>
+</html>
+
+
+
