@@ -6,4 +6,5 @@ function toggleSidebar() {
 
   // Rotate the chevron icon 180°
   toggleBtn.classList.toggle("rotate-135");
+  console.log("side nav is working");
 }
