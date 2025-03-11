@@ -3,7 +3,8 @@ function toggleSidebar() {
   const toggleBtn = document.getElementById("toggle-btn").querySelector("i");
 
   sidebar.classList.toggle("collapsed");
-
-  // Rotate the chevron icon 180°
-  toggleBtn.classList.toggle("rotate-135");
+  if (sidebar == "collapse") {
+    // Rotate the chevron icon 180°
+    toggleBtn.innerHTML = ``;
+  }
 }
