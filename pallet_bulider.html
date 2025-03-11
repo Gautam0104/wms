@@ -4,286 +4,311 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMS Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <!-- page style css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- page style css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-<body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div
-        id="sidebar"
-        class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
-      >
-        <!-- Top Section -->
-        <div>
-          <div class="flex justify-between items-center">
-            <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-              <i class="fas fa-box"></i>
-              <span class="sidebar-text">WMS</span>
-            </h4>
-            <button
-              id="toggle-btn"
-              onclick="toggleSidebar()"
-              class="p-2 bg-gray-200 rounded-full transition-transform"
-            >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-          </div>
-  
-          <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-          <nav class="flex flex-col">
-            <a
-              href="index.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-archive"></i>
-              <span class="sidebar-text">Inventory Management</span>
-            </a>
-            <a
-              href="pharmaScan.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-barcode"></i>
-              <span class="sidebar-text">PharmaScan</span>
-            </a>
-            <a
-              href="product.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-box-open"></i>
-              <span class="sidebar-text">Product</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-truck"></i>
-              <span class="sidebar-text">Pre-Receiving</span>
-            </a>
-            <a
-              href="receiving.html"
-              class="nav-link py-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-barcode"></i>
-              <span class="sidebar-text">Receiving</span>
-            </a>
-            <a
-              href="put_away.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-arrow-down-up"></i>
-              <span class="sidebar-text">Put-away</span>
-            </a>
-            <a
-              href="order.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
+    >
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="bi bi-box-seam"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            class="mb-4"
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+        </div>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-upc-scan"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="receiving.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-down"></i>
+            <span class="sidebar-text">Receiving</span>
+          </a>
+          <a
+            href="put_away.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-arrow-down-up"></i>
+            <span class="sidebar-text">Put-away</span>
+          </a>
+          <a
+            href="order.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
           >
             <i class="bi bi-0-circle"></i>
-              <span class="sidebar-text">Order</span>
-            </a>
-            <a
-              href="picking.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+            <span class="sidebar-text">Order</span>
+          </a>
+          <a
+            href="picking.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
           >
             <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Picking</span>
-            </a>
-            <a
-              href="packing.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
+            <span class="sidebar-text">Picking</span>
+          </a>
+          <a
+            href="packing.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
             <i class="bi bi-boxes"></i>
-              <span class="sidebar-text">Packing</span>
-            </a>
-            <a
-              href="pallet.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet</span>
-            </a>
-            <a
-              href="pallet_bulider.html"
-              class="nav-link bg-blue-100 text-blue-700 py-2 flex items-center gap-2 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">pallet bulider</span>
-            </a>
-            <a
-              href="location.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
+            <span class="sidebar-text">Packing</span>
+          </a>
+          <a
+            href="pallet.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet</span>
+          </a>
+          <a
+            href="pallet_bulider.html"
+            class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet Builder</span>
+          </a>
+          <a
+            href="location.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
             <i class="bi bi-geo-alt"></i>
-              <span class="sidebar-text">Expedition</span>
-            </a>
-            <a
-              href="shipment.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-shopping-cart"></i>
-              <span class="sidebar-text">Shipment</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-truck"></i>
-              <span class="sidebar-text">Delivery-Last Mile</span>
-            </a>
-  
-          </nav>
-        </div>
-  
-        <!-- Bottom Section (Settings Links) -->
-        <div class="mt-auto">
-          <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+            <span class="sidebar-text">Expedition</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Delivery-Last Mile</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="mt-auto">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">Setting</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">System Setting</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 px-4">
+      <div
+        class="flex justify-between items-center bg-white shadow-lg p-4 mb-6 rounded-lg"
+      >
+        <div class="flex">
           <nav class="flex flex-col">
             <a
-              href="settings.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+              href="pallet_bulder.html"
+              class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
+              ><i class="bi bi-box-arrow-in-up mr-2"></i>Pallet Builder</a
             >
-              <i class="fas fa-cog"></i>
-              <span class="sidebar-text">Settings</span>
-            </a>
-            <a
-              href="system-settings.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="fas fa-tools"></i>
-              <span class="sidebar-text">System Settings</span>
-            </a>
           </nav>
         </div>
+        <div class="flex items-center">
+          <i class="bi bi-bell-fill"></i>
+          <span class="ml-2 text-gray-700"
+            >John Doe
+            <span class="text-sm text-gray-500">Warehouse Manager</span></span
+          >
+        </div>
       </div>
-        <div class="container-fluid px-4">
-            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text-primary">
-                <div class="d-flex"> <button class="btn  me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                    <nav class="nav flex-column">
-                        <a href="pallet_bulider.html" class="nav-link bg-primary bg-opacity-25 text-primary fa-2x fw-semibold rounded "><i class="bi bi-box-arrow-in-up"></i> Pallet Builder</a>
-                      </nav>
-                </div>
-                <div>
-                    <i class="bi bi-bell-fill"></i>
-                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
-                </div>
+
+      <div class="bg-white shadow-lg p-6 rounded-lg">
+        <div class="flex justify-between items-center mb-6">
+          <button
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+          >
+            <i class="fas fa-plus mr-2"></i> Create New Pallet
+          </button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="bg-blue-100 p-4 rounded-lg flex items-center">
+            <div class="flex-1">
+              <p class="text-blue-700 text-lg font-semibold">Total Pallets</p>
+              <p class="text-blue-700 text-2xl font-bold">3</p>
             </div>
-            <div class="container-fluid mx-auto p-6 my-5 card" >
-                <div class="flex justify-between items-center mb-6">
-                    <div>
-                        <h1 class="text-2xl font-bold text-gray-800 flex items-center">
-                           
-                        </h1>
-                        <p class="text-gray-600">Create and manage pallets for shipment</p>
-                    </div>
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700">
-                        <i class="fas fa-plus mr-2"></i> Create New Pallet
-                    </button>
-                </div>
-        
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
-                        <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
-                            <i class="fas fa-cubes"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">Total Pallets</p>
-                            <p class="text-2xl font-bold text-gray-800">3</p>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
-                        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full mr-4">
-                            <i class="fas fa-box-open"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">In Progress</p>
-                            <p class="text-2xl font-bold text-gray-800">2</p>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow flex items-center">
-                        <div class="bg-green-100 text-green-600 p-3 rounded-full mr-4">
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">Completed</p>
-                            <p class="text-2xl font-bold text-gray-800">1</p>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="mb-6">
-                    <input type="text" placeholder="Search pallets by ID or destination" class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
-                </div>
-        
-                <div class="bg-white p-4 rounded-lg shadow">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="text-gray-600">
-                                <th class="py-2">Pallet ID</th>
-                                <th class="py-2">Packages</th>
-                                <th class="py-2">Weight (kg)</th>
-                                <th class="py-2">Destination</th>
-                                <th class="py-2">Created</th>
-                                <th class="py-2">Status</th>
-                                <th class="py-2">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-t">
-                                <td class="py-2">PLT-4532</td>
-                                <td class="py-2">12</td>
-                                <td class="py-2">145.8</td>
-                                <td class="py-2">Warehouse A</td>
-                                <td class="py-2">2024-06-10</td>
-                                <td class="py-2">
-                                    <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm">In Progress</span>
-                                </td>
-                                <td class="py-2">
-                                    <a href="#" class="text-blue-600 hover:underline">View</a>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2">PLT-4533</td>
-                                <td class="py-2">8</td>
-                                <td class="py-2">98.2</td>
-                                <td class="py-2">Distribution Center B</td>
-                                <td class="py-2">2024-06-09</td>
-                                <td class="py-2">
-                                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-sm">Completed</span>
-                                </td>
-                                <td class="py-2">
-                                    <a href="#" class="text-blue-600 hover:underline">View</a>
-                                    <a href="#" class="text-gray-600 hover:underline ml-2"><i class="fas fa-print"></i></a>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-2">PLT-4534</td>
-                                <td class="py-2">15</td>
-                                <td class="py-2">187.5</td>
-                                <td class="py-2">Retail Store C</td>
-                                <td class="py-2">2024-06-08</td>
-                                <td class="py-2">
-                                    <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm">In Progress</span>
-                                </td>
-                                <td class="py-2">
-                                    <a href="#" class="text-blue-600 hover:underline">View</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-        
-                <div class="mt-6 p-4 bg-blue-100 text-blue-600 rounded-lg flex items-center">
-                    <i class="fas fa-info-circle mr-2"></i>
-                    <p>You have pallets in progress. Complete them before shipping to ensure proper inventory tracking.</p>
-                </div>
+            <i class="fas fa-chart-bar text-blue-500 text-3xl"></i>
+          </div>
+          <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
+            <div class="flex-1">
+              <p class="text-yellow-700 text-lg font-semibold">In Progress</p>
+              <p class="text-yellow-700 text-2xl font-bold">2</p>
             </div>
+            <i class="fas fa-exclamation-triangle text-yellow-500 text-3xl"></i>
+          </div>
+          <div class="bg-green-100 p-4 rounded-lg flex items-center">
+            <div class="flex-1">
+              <p class="text-green-700 text-lg font-semibold">Completeed</p>
+              <p class="text-green-700 text-2xl font-bold">1</p>
+            </div>
+            <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <input
+            type="text"
+            placeholder="Search pallets by ID or destination"
+            class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow">
+          <table class="w-full bg-white border border-gray-200 rounded-lg">
+            <thead>
+              <tr class="bg-gray-100 text-left">
+                <th class="p-2 border-b">Pallet ID</th>
+                <th class="p-2 border-b">Packages</th>
+                <th class="p-2 border-b">Weight (kg)</th>
+                <th class="p-2 border-b">Destination</th>
+                <th class="p-2 border-b">Created</th>
+                <th class="p-2 border-b">Status</th>
+                <th class="p-2 border-b">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-2 border-b">PLT-4532</td>
+                <td class="p-2 border-b">12</td>
+                <td class="p-2 border-b">145.8</td>
+                <td class="p-2 border-b">Warehouse A</td>
+                <td class="p-2 border-b">2024-06-10</td>
+                <td class="p-2 border-b">
+                  <span
+                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
+                    >In Progress</span
+                  >
+                </td>
+                <td class="p-2 border-b">
+                  <a href="#" class="text-blue-600 hover:underline">View</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2 border-b">PLT-4533</td>
+                <td class="p-2 border-b">8</td>
+                <td class="p-2 border-b">98.2</td>
+                <td class="p-2 border-b">Distribution Center B</td>
+                <td class="p-2 border-b">2024-06-09</td>
+                <td class="p-2 border-b">
+                  <span
+                    class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-sm"
+                    >Completed</span
+                  >
+                </td>
+                <td class="p-2 border-b">
+                  <a href="#" class="text-blue-600 hover:underline">View</a>
+                  <a href="#" class="text-gray-600 hover:underline ml-2"
+                    ><i class="fas fa-print"></i
+                  ></a>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2 border-b">PLT-4534</td>
+                <td class="p-2 border-b">15</td>
+                <td class="p-2 border-b">187.5</td>
+                <td class="p-2 border-b">Retail Store C</td>
+                <td class="p-2 border-b">2024-06-08</td>
+                <td class="p-2 border-b">
+                  <span
+                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
+                    >In Progress</span
+                  >
+                </td>
+                <td class="p-2 border-b">
+                  <a href="#" class="text-blue-600 hover:underline">View</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div
+          class="mt-6 p-4 bg-blue-100 text-blue-600 rounded-lg flex items-center"
+        >
+          <i class="fas fa-info-circle mr-2"></i>
+          <p>
+            You have pallets in progress. Complete them before shipping to
+            ensure proper inventory tracking.
+          </p>
+        </div>
+      </div>
     </div>
-     <!-- page js  -->
-     <script src="./assets/js/main.js "></script>
-</body>
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
