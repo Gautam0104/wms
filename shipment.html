@@ -27,59 +27,84 @@
     <!-- Sidebar -->
     <div
       id="sidebar"
-      class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all"
+      class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
     >
-      <div class="flex justify-between items-center">
-        <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-          <i class="fas fa-box"></i>
-          <span class="sidebar-text">WMS</span>
-        </h4>
-        <button id="toggle-btn" onclick="toggleSidebar()">
-          <i class="fas fa-chevron-left"></i>
-        </button>
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="fas fa-box"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </div>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-barcode"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-box-open"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link bg-blue-100 text-blue-700 py-2 flex items-center gap-2 rounded px-2"
+          >
+            <i class="fas fa-shopping-cart"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+        </nav>
       </div>
-      <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-      <nav class="flex flex-col">
-        <a
-          href="index.html"
-          class="nav-link py-2 hover:bg-gray-200 rounded px-2"
-        >
-          <i class="fas fa-archive"></i>
-          <span class="sidebar-text">Inventory Management</span>
-        </a>
-        <a
-          href="pharmaScan.html"
-          class="nav-link py-2 hover:bg-gray-200 rounded px-2"
-        >
-          <i class="fas fa-barcode"></i>
-          <span class="sidebar-text">PharmaScan</span>
-        </a>
-        <a
-          href="pharmaScan.html"
-          class="nav-link py-2 hover:bg-gray-200 rounded px-2"
-        >
-          <i class="fas fa-barcode"></i>
-          <span class="sidebar-text">PharmaScan</span>
-        </a>
-        <a
-          href="product.html"
-          class="nav-link py-2 hover:bg-gray-200 rounded px-2"
-        >
-          <i class="fas fa-box-open"></i>
-          <span class="sidebar-text">Product</span>
-        </a>
-        <a href="#" class="nav-link py-2 hover:bg-gray-200 rounded px-2">
-          <i class="fas fa-truck"></i>
-          <span class="sidebar-text">Pre-Receiving</span>
-        </a>
-        <a
-          href="shipment.html"
-          class="nav-link bg-blue-100 text-blue-700 py-2 rounded px-2"
-        >
-          <i class="fas fa-shopping-cart"></i>
-          <span class="sidebar-text">Shipment</span>
-        </a>
-      </nav>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="mt-auto">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="settings.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-cog"></i>
+            <span class="sidebar-text">Settings</span>
+          </a>
+          <a
+            href="system-settings.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="fas fa-tools"></i>
+            <span class="sidebar-text">System Settings</span>
+          </a>
+        </nav>
+      </div>
     </div>
 
     <div class="flex-1 px-4">
@@ -189,6 +214,40 @@
                 >
               </td>
               <td class="p-2 border-b"></td>
+            </tr>
+            <tr>
+              <td class="p-2 border-b">PRD-002</td>
+              <td class="p-2 border-b">Widget B</td>
+              <td class="p-2 border-b">LOT-B456</td>
+              <td class="p-2 border-b">8</td>
+              <td class="p-2 border-b">5</td>
+              <td class="p-2 border-b">
+                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-lg"
+                  >Shortage</span
+                >
+              </td>
+              <td class="p-2 border-b">
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-lg"
+                  >Reconcile</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="p-2 border-b">PRD-003</td>
+              <td class="p-2 border-b">Widget C</td>
+              <td class="p-2 border-b">LOT-C789</td>
+              <td class="p-2 border-b">5</td>
+              <td class="p-2 border-b">0</td>
+              <td class="p-2 border-b">
+                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-lg"
+                  >Shortage</span
+                >
+              </td>
+              <td class="p-2 border-b">
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-lg"
+                  >Reconcile</span
+                >
+              </td>
             </tr>
           </tbody>
         </table>

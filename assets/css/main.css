@@ -1,6 +1,8 @@
 .sidebar {
     width: 16rem;
     transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.collapsed {
@@ -11,16 +13,14 @@
     display: none;
 }
 
-.sidebar.collapsed .sidebar-link {
+.sidebar.collapsed .nav-link {
     justify-content: center;
 }
 
-/* Positioning toggle button */
 #toggle-btn {
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
-.sidebar.collapsed #toggle-btn {
-    right: -2rem;
+.sidebar.collapsed #toggle-btn i {
     transform: rotate(180deg);
 }
