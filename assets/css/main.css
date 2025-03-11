@@ -1,0 +1,26 @@
+.sidebar {
+    width: 16rem;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar.collapsed {
+    width: 4rem;
+}
+
+.sidebar.collapsed .sidebar-text {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-link {
+    justify-content: center;
+}
+
+/* Positioning toggle button */
+#toggle-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar.collapsed #toggle-btn {
+    right: -2rem;
+    transform: rotate(180deg);
+}
