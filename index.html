@@ -171,12 +171,13 @@
                     <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
                 </div>
             </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg my-5">
             <div class="row my-4">
                 <div class="col-md-3">
-                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                    <div class="bg-blue-100 p-4 rounded-lg flex items-center">
                         <div class="d-flex flex-column justify-content-start">
-                        <h5>Received Today</h5>
-                        <h3>12</h3>
+                          <p class="text-blue-700 text-lg font-semibold">Received Today</p>
+                          <p class="text-blue-700 text-2xl font-bold">12</p>
                     </div>
                     <div class="d-flex flex-row justify-content-center align-items-center bg-blue-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
                         <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-10b95350-90c0-59ec-bc62-70504371c089" tempoelementid="tempo-10b95350-90c0-59ec-bc62-70504371c089">
@@ -189,10 +190,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                    <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
                         <div class="d-flex flex-column justify-content-start">
-                        <h5>Pending Put-away</h5>
-                        <h3 class="text-warning">8</h3>
+                          <p class="text-yellow-700 text-lg font-semibold">Pending Put-away</p>
+                          <p class="text-yellow-700 text-2xl font-bold">8</p>
                         </div>
                         <div class="d-flex flex-row justify-content-center align-items-center bg-amber-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
                             <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39" tempoelementid="tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39">
@@ -205,10 +206,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                    <div class="bg-green-100 p-4 rounded-lg flex items-center">
                         <div class="d-flex flex-column justify-content-start">
-                        <h5>Orders to Fulfill</h5>
-                        <h3 class="text-success">15</h3>
+                          <p class="text-green-700 text-lg font-semibold">Orders to Fulfill</p>
+                          <p class="text-green-700 text-2xl font-bold">15</p>
                         </div>
                         <div class="d-flex flex-row justify-content-center align-items-center bg-green-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
                             <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804" tempoelementid="tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804">
@@ -221,10 +222,10 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card p-3 d-flex flex-row justify-content-between align-items-center">
+                    <div class="bg-purple-100 p-4 rounded-lg flex items-center">
                         <div class="d-flex flex-column justify-content-start">
-                        <h5>Pallets Built</h5>
-                        <h3 class="text-primary">5</h3>
+                          <p class="text-purple-700 text-lg font-semibold">Pallets Built</p>
+                          <p class="text-purple-700 text-2xl font-bold">5</p>
                     </div>
                     <div class="d-flex flex-row justify-content-center align-items-center bg-purple-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
                         <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681" tempoelementid="tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681">
@@ -291,31 +292,53 @@
 
 
             </div>
-            <div class="my-4 card p-2 d-flex flex-row row mx-1">
-                <div class="col-6 d-flex justify-content-center align-items-center card shadow-lg p-1">
-                    <span>Recent Activity</span>
-                </div>
-                <div class="col-6 d-flex justify-content-center align-items-center">
-                    <span>Analytic</span>
-                </div>
-            </div>
-            <div class="my-4 card p-4">
-                <h4>Recent Activity</h4>
-                <div class="recent-activity shadow-lg">
-                    <span class="text-primary">1</span>
-                    <p><strong>Shipment SHP-2024-0042 received</strong><br>25 items processed with 0 discrepancies<br><small>Today, 10:23 AM</small></p>
-                </div>
-                <div class="recent-activity shadow-lg">
-                    <span class="text-success">2</span>
-                    <p><strong>Order ORD-12345 fulfilled</strong><br>All items picked and packed successfully<br><small>Today, 9:45 AM</small></p>
-                </div>
-                <div class="recent-activity shadow-lg">
-                    <span class="text-danger">3</span>
-                    <p><strong>Inventory alert for SKU-003</strong><br>Stock level below minimum threshold<br><small>Yesterday, 4:12 PM</small></p>
-                </div>
-            </div>
-            <div class="maintenance-alert mt-4">
-                <small>System maintenance scheduled for Sunday, June 18th from 2:00 AM to 4:00 AM EST.</small>
+            <ul class="flex border-b mb-3">
+              <li class="mr-4">
+                <a
+                  class="inline-block py-2 px-4 text-blue-700 border-b-2 border-blue-700"
+                  href="#"
+                  >Recent Activity</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
+                  href="#"
+                  >Analytic</a
+                >
+              </li>
+            </ul>
+            <div class="bg-white shadow rounded-lg">
+              <div class="p-4 border-b">
+                  <h2 class="text-lg font-semibold">Recent Activity</h2>
+              </div>
+              <div class="p-4">
+                  <div class="flex items-start mb-4">
+                      <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                      <div>
+                        <p><strong>Shipment SHP-2024-0042 received</strong><br>25 items processed with 0 discrepancies<br><small>Today, 10:23 AM</small></p>
+                      </div>
+                  </div>
+                  <div class="flex items-start mb-4">
+                      <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                      <div>
+                        <p><strong>Order ORD-12345 fulfilled</strong><br>All items picked and packed successfully<br><small>Today, 9:45 AM</small></p>
+                      </div>
+                  </div>
+                  <div class="flex items-start">
+                      <i class="fas fa-exclamation-triangle text-yellow-500 text-xl mr-3"></i>
+                      <div>
+                        <p><strong>Inventory alert for SKU-003</strong><br>Stock level below minimum threshold<br><small>Yesterday, 4:12 PM</small></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+            <div class="mt-4 bg-blue-100 p-3 rounded">
+              
+              <p class="text-gray-600">
+                System maintenance scheduled for Sunday, June 18th from 2:00 AM to 4:00 AM EST.
+              </p>
             </div>
         </div>
         </div>
