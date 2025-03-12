@@ -1,354 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMS Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-          <script src="https://cdn.tailwindcss.com">
-        </script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-        <!-- page style css -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- page style css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-<body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div
-        id="sidebar"
-        class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between"
+    >
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="bi bi-box-seam"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            class="mb-4"
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
+        </div>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
+          >
+            <i class="bi bi-upc-scan"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="receiving.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-down"></i>
+            <span class="sidebar-text">Receiving</span>
+          </a>
+          <a
+            href="put_away.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-arrow-down-up"></i>
+            <span class="sidebar-text">Put-away</span>
+          </a>
+          <a
+            href="order.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-0-circle"></i>
+            <span class="sidebar-text">Order</span>
+          </a>
+          <a
+            href="picking.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Picking</span>
+          </a>
+          <a
+            href="packing.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-boxes"></i>
+            <span class="sidebar-text">Packing</span>
+          </a>
+          <a
+            href="pallet.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet</span>
+          </a>
+          <a
+            href="pallet_bulider.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet Builder</span>
+          </a>
+          <a
+            href="location.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-geo-alt"></i>
+            <span class="sidebar-text">Expedition</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Delivery-Last Mile</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="my-6">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">Setting</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">System Setting</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="flex-1 px-4">
+      <div
+        class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white"
       >
-        <!-- Top Section -->
         <div>
-          <div class="flex justify-between items-center">
-            <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-              <i class="bi bi-box-seam"></i>
-              <span class="sidebar-text">WMS</span>
-            </h4>
-            <button
-              class="mb-4"
-              id="toggle-btn"
-              onclick="toggleSidebar()"
-              class="p-2 bg-gray-200 rounded-full transition-transform"
-            >
-              <i class="bi bi-chevron-left"></i>
-            </button>
-          </div>
-  
-          <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-          <nav class="flex flex-col">
-            <a
-              href="index.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-archive"></i>
-              <span class="sidebar-text">Inventory Management</span>
-            </a>
-            <a
-              href="pharmaScan.html"
-              class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
-            >
-              <i class="bi bi-upc-scan"></i>
-              <span class="sidebar-text">PharmaScan</span>
-            </a>
-            <a
-              href="product.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Product</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-truck"></i>
-              <span class="sidebar-text">Pre-Receiving</span>
-            </a>
-            <a
-              href="receiving.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-down"></i>
-              <span class="sidebar-text">Receiving</span>
-            </a>
-            <a
-              href="put_away.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-arrow-down-up"></i>
-              <span class="sidebar-text">Put-away</span>
-            </a>
-            <a
-              href="order.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-0-circle"></i>
-              <span class="sidebar-text">Order</span>
-            </a>
-            <a
-              href="picking.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Picking</span>
-            </a>
-            <a
-              href="packing.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-boxes"></i>
-              <span class="sidebar-text">Packing</span>
-            </a>
-            <a
-              href="pallet.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet</span>
-            </a>
-            <a
-              href="pallet_bulider.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet Builder</span>
-            </a>
-            <a
-              href="location.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-geo-alt"></i>
-              <span class="sidebar-text">Expedition</span>
-            </a>
-            <a
-              href="shipment.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Shipment</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Delivery-Last Mile</span>
-            </a>
-          </nav>
+          <a
+            href="pharmaScan.html"
+            class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
+            ><i class="bi bi-upc-scan mr-2"></i>PharmaScan</a
+          >
         </div>
-  
-        <!-- Bottom Section (Settings Links) -->
-        <div class="mt-auto">
-          <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
-          <nav class="flex flex-col">
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">Setting</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">System Setting</span>
-            </a>
-          </nav>
+        <div class="flex items-center gap-2">
+          <i class="bi bi-bell-fill"></i>
+          <span
+            >John Doe <span class="text-gray-500">Warehouse Manager</span></span
+          >
         </div>
       </div>
-        <div class="container-fluid px-4">
-            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 text-primary">
-                <div class="d-flex"> <button class="btn  me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                    <nav class="nav flex-column">
-                        <a href="pharmaScan.html" class="nav-link bg-primary bg-opacity-25 text-primary fa-2x fw-semibold rounded "><i class="bi bi-upc-scan"></i> PharmaScan</a>
-                    </nav>
-                </div>
-                <div>
-                    <i class="bi bi-bell-fill"></i>
-                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
-                </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-lg my-5">
+        <div class="flex justify-between my-4">
+          <div class="w-1/4">
+            <div class="bg-blue-100 py-4 px-2 rounded-lg flex items-center justify-between mr-2">
+              <div class="flex flex-col justify-start">
+                <p class="text-blue-700 text-lg font-semibold">Received Today</p>
+                <p class="text-blue-700 text-2xl font-bold">12</p>
+              </div>
+              <div class="flex justify-center items-center bg-blue-200 bg-opacity-25 p-4 rounded-full w-12 h-12">
+                <svg class="text-blue-600 h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+              </div>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg my-5">
-              <div class="row my-4">
-                  <div class="col-md-3">
-                      <div class="bg-blue-100 p-4 rounded-lg flex items-center">
-                          <div class="d-flex flex-column justify-content-start">
-                            <p class="text-blue-700 text-lg font-semibold">Received Today</p>
-                            <p class="text-blue-700 text-2xl font-bold">12</p>
-                      </div>
-                      <div class="d-flex flex-row justify-content-center align-items-center bg-blue-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
-                          <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-10b95350-90c0-59ec-bc62-70504371c089" tempoelementid="tempo-10b95350-90c0-59ec-bc62-70504371c089">
-                              <svg style="color:blue;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                               class="lucide lucide-trending-up h-6 w-6 text-blue-600 tempo-a7799954-bfa8-55a8-a79f-affb3b504ca7" tempoelementid="tempo-a7799954-bfa8-55a8-a79f-affb3b504ca7">
-                                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13">
-  
-                                  </polyline></svg></div>
-                      </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
-                          <div class="d-flex flex-column justify-content-start">
-                            <p class="text-yellow-700 text-lg font-semibold">Pending Put-away</p>
-                            <p class="text-yellow-700 text-2xl font-bold">8</p>
-                          </div>
-                          <div class="d-flex flex-row justify-content-center align-items-center bg-amber-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
-                              <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39" tempoelementid="tempo-15ad59aa-f856-5d17-93ff-8d0e29e68a39">
-                                  <svg style="color:rgb(216, 147, 20);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                   class="lucide lucide-circle-alert h-6 w-6 text-amber-600 tempo-b1dc0a00-dcfe-5f2f-9d92-d2b536f68229" tempoelementid="tempo-b1dc0a00-dcfe-5f2f-9d92-d2b536f68229">
-                                      <circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16">
-  
-                                      </line></svg></div>
-                              </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="bg-green-100 p-4 rounded-lg flex items-center">
-                          <div class="d-flex flex-column justify-content-start">
-                            <p class="text-green-700 text-lg font-semibold">Orders to Fulfill</p>
-                            <p class="text-green-700 text-2xl font-bold">15</p>
-                          </div>
-                          <div class="d-flex flex-row justify-content-center align-items-center bg-green-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
-                              <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804" tempoelementid="tempo-e1c00fc1-0315-56b9-9c0f-6eecccaa4804">
-                                  <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                   class="lucide lucide-users h-6 w-6 text-green-600 tempo-19584b9c-a5cf-52f0-b928-c39c7f299d45" tempoelementid="tempo-19584b9c-a5cf-52f0-b928-c39c7f299d45">
-                                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87">
-  
-                                      </path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="bg-purple-100 p-4 rounded-lg flex items-center">
-                          <div class="d-flex flex-column justify-content-start">
-                            <p class="text-purple-700 text-lg font-semibold">Pallets Built</p>
-                            <p class="text-purple-700 text-2xl font-bold">5</p>
-                      </div>
-                      <div class="d-flex flex-row justify-content-center align-items-center bg-purple-200 bg-opacity-25 p-4 rounded-circle" style="width: 50px;height: 50px;">
-                          <div class="h-12 w-12  rounded-full flex items-center justify-center tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681" tempoelementid="tempo-37582fee-87fd-5a5e-8f15-2ff5995b5681">
-                              <svg style="color:purple;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                               class="lucide lucide-bar-chart2 h-6 w-6 text-purple-600 tempo-adcb81de-5933-57ac-9bf3-b8a2f9b37457" tempoelementid="tempo-adcb81de-5933-57ac-9bf3-b8a2f9b37457">
-                                  <line x1="18" x2="18" y1="20" y2="10"></line><line x1="12" x2="12" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="14"></line>
-                              </svg></div>
-                      </div>
-                      </div>
-                  </div>
+          </div>
+          <div class="w-1/4">
+            <div class="bg-yellow-100 py-4 px-2 rounded-lg flex items-center justify-between mr-2">
+              <div class="flex flex-col justify-start">
+                <p class="text-yellow-700 text-lg font-semibold">Pending Put-away</p>
+                <p class="text-yellow-700 text-2xl font-bold">8</p>
               </div>
-              <div class="module-container card p-4">
-                <div class="d-flex  text-primary p-2 my-2"> <button class="btn  me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                    </button>
-                    <h4 class="fa-2x fw-semibold"><i class="bi bi-upc-scan"></i> PharmaScan</h4>
-                </div>
-                <div class="row">
-                    <div class="col-md-3" >
-                        <div class="card p-3 text-center" style="height: 25vh;">
-                            <i class="bi bi-box-seam display-4"></i>
-                              <h5>Receiving Module</h5>
-                              <p>Scan incoming shipments and match expected invoices.</p>
-                              <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
-                          </div>
-                      </div>
-                      <div class="col-md-3" >
-                          <div class="card p-3 text-center" style="height: 25vh;">
-                              <i class="bi bi-arrow-left-right display-4"></i>
-                              <h5>Put-away Module</h5>
-                              <p>Assign storage locations for received items.</p>
-                              <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                          <div class="card p-3 text-center" style="height: 25vh;">
-                              <i class="bi bi-cart display-4"></i>
-                              <h5>Picking/Packing</h5>
-                              <p>Streamlined scanning workflow for order fulfillment.</p>
-                              <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
-                          </div>
-                      </div>
-                      <div class="col-md-3">
-                          <div class="card p-3 text-center" style="height: 25vh;">
-                              <i class="bi bi-box display-4"></i>
-                              <h5>Pallet Builder</h5>
-                              <p>Consolidated shipping preparation with scan-to-confirm.</p>
-                              <button class="btn btn-primary" style="position: absolute; bottom: 0;width: 90%;margin-bottom: 10px;" >Open Module</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="pro-tip">
-                      <strong>Pro Tip:</strong> Use the barcode scanner to quickly process items through each module.
-                  </div>
+              <div class="flex justify-center items-center bg-amber-200 bg-opacity-25 p-4 rounded-full w-12 h-12">
+                <svg class="text-amber-600 h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" x2="12" y1="8" y2="12"></line>
+                  <line x1="12" x2="12.01" y1="16" y2="16"></line>
+                </svg>
               </div>
-  
-              <div class="my-4 row card p-2 d-flex flex-row mx-1">
-                  <div class="col-1 d-flex align-items-center justify-content-end">
-                      <span class="text-primary"><i class="bi bi-upc-scan"></i></span>
-                  </div>
-                  <div class="col-6 d-flex flex-column justify-content-start">
-                      <h4>Quick Barcode Scanner</h4>
-                      <p>Scan any item or location barcode for quick access</p>
-                  </div>
-                  <div class="col-4 d-flex justify-content-end align-items-center">
-                      <button class="btn btn-outline-primary">Show Scanner</button>
-                  </div>
-  
-  
-              </div>
-              <ul class="flex border-b mb-3">
-                <li class="mr-4">
-                  <a
-                    class="inline-block py-2 px-4 text-blue-700 border-b-2 border-blue-700"
-                    href="#"
-                    >Recent Activity</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
-                    href="#"
-                    >Analytic</a
-                  >
-                </li>
-              </ul>
-              <div class="bg-white shadow rounded-lg">
-                <div class="p-4 border-b">
-                    <h2 class="text-lg font-semibold">Recent Activity</h2>
-                </div>
-                <div class="p-4">
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                        <div>
-                          <p><strong>Shipment SHP-2024-0042 received</strong><br>25 items processed with 0 discrepancies<br><small>Today, 10:23 AM</small></p>
-                        </div>
-                    </div>
-                    <div class="flex items-start mb-4">
-                        <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
-                        <div>
-                          <p><strong>Order ORD-12345 fulfilled</strong><br>All items picked and packed successfully<br><small>Today, 9:45 AM</small></p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <i class="fas fa-exclamation-triangle text-yellow-500 text-xl mr-3"></i>
-                        <div>
-                          <p><strong>Inventory alert for SKU-003</strong><br>Stock level below minimum threshold<br><small>Yesterday, 4:12 PM</small></p>
-                        </div>
-                    </div>
-                </div>
             </div>
-            
-              <div class="mt-4 bg-blue-100 p-3 rounded">
-                
-                <p class="text-gray-600">
-                  System maintenance scheduled for Sunday, June 18th from 2:00 AM to 4:00 AM EST.
-                </p>
+          </div>
+          <div class="w-1/4">
+            <div class="bg-green-100 py-4 px-2 rounded-lg flex items-center justify-between mr-2">
+              <div class="flex flex-col justify-start">
+                <p class="text-green-700 text-lg font-semibold">Orders to Fulfill</p>
+                <p class="text-green-700 text-2xl font-bold">15</p>
+              </div>
+              <div class="flex justify-center items-center bg-green-200 bg-opacity-25 p-4 rounded-full w-12 h-12">
+                <svg class="text-green-600 h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="w-1/4">
+            <div class="bg-purple-100 py-4 px-2 rounded-lg flex items-center justify-between mr-2">
+              <div class="flex flex-col justify-start">
+                <p class="text-purple-700 text-lg font-semibold">Pallets Built</p>
+                <p class="text-purple-700 text-2xl font-bold">5</p>
+              </div>
+              <div class="flex justify-center items-center bg-purple-200 bg-opacity-25 p-4 rounded-full w-12 h-12">
+                <svg class="text-purple-600 h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" x2="18" y1="20" y2="10"></line>
+                  <line x1="12" x2="12" y1="20" y2="4"></line>
+                  <line x1="6" x2="6" y1="20" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="flex items-center text-blue-600 p-2 my-2">
+              <button class="btn me-2" data-bs-toggle="collapse" data-bs-target="#sidebar"></button>
+              <h4 class="text-2xl font-semibold flex items-center">
+                  <i class="bi bi-upc-scan"></i> PharmaScan
+              </h4>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div class="bg-white shadow p-3 text-center h-60 flex flex-col justify-between rounded-lg">
+                  <i class="bi bi-box-seam text-4xl"></i>
+                  <h5 class="text-lg font-semibold">Receiving Module</h5>
+                  <p class="text-gray-600">Scan incoming shipments and match expected invoices.</p>
+                  <button class="bg-blue-600 text-white py-2 w-full rounded-lg">Open Module</button>
+              </div>
+              <div class="bg-white shadow p-3 text-center h-60 flex flex-col justify-between rounded-lg">
+                  <i class="bi bi-arrow-left-right text-4xl"></i>
+                  <h5 class="text-lg font-semibold">Put-away Module</h5>
+                  <p class="text-gray-600">Assign storage locations for received items.</p>
+                  <button class="bg-blue-600 text-white py-2 w-full rounded-lg">Open Module</button>
+              </div>
+              <div class="bg-white shadow p-3 text-center h-60 flex flex-col justify-between rounded-lg">
+                  <i class="bi bi-cart text-4xl"></i>
+                  <h5 class="text-lg font-semibold">Picking/Packing</h5>
+                  <p class="text-gray-600">Streamlined scanning workflow for order fulfillment.</p>
+                  <button class="bg-blue-600 text-white py-2 w-full rounded-lg">Open Module</button>
+              </div>
+              <div class="bg-white shadow p-3 text-center h-60 flex flex-col justify-between rounded-lg">
+                  <i class="bi bi-box text-4xl"></i>
+                  <h5 class="text-lg font-semibold">Pallet Builder</h5>
+                  <p class="text-gray-600">Consolidated shipping preparation with scan-to-confirm.</p>
+                  <button class="bg-blue-600 text-white py-2 w-full rounded-lg">Open Module</button>
               </div>
           </div>
+          <div class="mt-4 text-gray-700 font-medium">
+              <strong>Pro Tip:</strong> Use the barcode scanner to quickly process items through each module.
           </div>
       </div>
-   <!-- page js  -->
-   <script src="./assets/js/main.js "></script>
-</body>
+      
+      <div class="my-4 flex flex-row bg-white shadow p-2 rounded-lg">
+          <div class="w-1/12 flex items-center justify-end text-blue-600 text-xl">
+              <i class="bi bi-upc-scan mr-2"></i>
+          </div>
+          <div class="w-7/12 flex flex-col justify-start">
+              <h4 class="text-lg font-semibold">Quick Barcode Scanner</h4>
+              <p class="text-gray-600">Scan any item or location barcode for quick access</p>
+          </div>
+          <div class="w-4/12 flex justify-end items-center">
+              <button class="border border-blue-600 text-blue-600 py-2 px-4 rounded-lg">Show Scanner</button>
+          </div>
+      </div>
+      
+      <ul class="flex border-b mb-3">
+          <li class="mr-4">
+              <a class="inline-block py-2 px-4 text-blue-600 border-b-2 border-blue-600" href="#">Recent Activity</a>
+          </li>
+          <li>
+              <a class="inline-block py-2 px-4 text-gray-600 hover:text-blue-600" href="#">Analytic</a>
+          </li>
+      </ul>
+      
+      <div class="bg-white shadow rounded-lg">
+          <div class="p-4 border-b">
+              <h2 class="text-lg font-semibold">Recent Activity</h2>
+          </div>
+          <div class="p-4">
+              <div class="flex items-start mb-4">
+                  <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                  <div>
+                      <p><strong>Shipment SHP-2024-0042 received</strong><br>25 items processed with 0 discrepancies<br><small>Today, 10:23 AM</small></p>
+                  </div>
+              </div>
+              <div class="flex items-start mb-4">
+                  <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                  <div>
+                      <p><strong>Order ORD-12345 fulfilled</strong><br>All items picked and packed successfully<br><small>Today, 9:45 AM</small></p>
+                  </div>
+              </div>
+              <div class="flex items-start">
+                  <i class="fas fa-exclamation-triangle text-yellow-500 text-xl mr-3"></i>
+                  <div>
+                      <p><strong>Inventory alert for SKU-003</strong><br>Stock level below minimum threshold<br><small>Yesterday, 4:12 PM</small></p>
+                  </div>
+              </div>
+          </div>
+
+      
+      </div>
+      
+      
+
+    <!-- page js  -->
+    <script src="./assets/js/main.js "></script>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

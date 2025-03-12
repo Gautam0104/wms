@@ -1,665 +1,715 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMS Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-      <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <!-- page style css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-<body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div
-        id="sidebar"
-        class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
-      >
-        <!-- Top Section -->
-        <div>
-          <div class="flex justify-between items-center">
-            <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-              <i class="bi bi-box-seam"></i>
-              <span class="sidebar-text">WMS</span>
-            </h4>
-            <button
-              class="mb-4"
-              id="toggle-btn"
-              onclick="toggleSidebar()"
-              class="p-2 bg-gray-200 rounded-full transition-transform"
-            >
-              <i class="bi bi-chevron-left"></i>
-            </button>
-          </div>
-  
-          <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-          <nav class="flex flex-col">
-            <a
-              href="index.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-archive"></i>
-              <span class="sidebar-text">Inventory Management</span>
-            </a>
-            <a
-              href="pharmaScan.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-upc-scan"></i>
-              <span class="sidebar-text">PharmaScan</span>
-            </a>
-            <a
-              href="product.html"
-              class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Product</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-truck"></i>
-              <span class="sidebar-text">Pre-Receiving</span>
-            </a>
-            <a
-              href="receiving.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-down"></i>
-              <span class="sidebar-text">Receiving</span>
-            </a>
-            <a
-              href="put_away.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-arrow-down-up"></i>
-              <span class="sidebar-text">Put-away</span>
-            </a>
-            <a
-              href="order.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-0-circle"></i>
-              <span class="sidebar-text">Order</span>
-            </a>
-            <a
-              href="picking.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Picking</span>
-            </a>
-            <a
-              href="packing.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-boxes"></i>
-              <span class="sidebar-text">Packing</span>
-            </a>
-            <a
-              href="pallet.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet</span>
-            </a>
-            <a
-              href="pallet_bulider.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet Builder</span>
-            </a>
-            <a
-              href="location.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-geo-alt"></i>
-              <span class="sidebar-text">Expedition</span>
-            </a>
-            <a
-              href="shipment.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Shipment</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Delivery-Last Mile</span>
-            </a>
-          </nav>
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between"
+    >
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="bi bi-box-seam"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            class="mb-4"
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
         </div>
-  
-        <!-- Bottom Section (Settings Links) -->
-        <div class="mt-auto">
-          <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
-          <nav class="flex flex-col">
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">Setting</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">System Setting</span>
-            </a>
-          </nav>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-upc-scan"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="receiving.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-down"></i>
+            <span class="sidebar-text">Receiving</span>
+          </a>
+          <a
+            href="put_away.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-arrow-down-up"></i>
+            <span class="sidebar-text">Put-away</span>
+          </a>
+          <a
+            href="order.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-0-circle"></i>
+            <span class="sidebar-text">Order</span>
+          </a>
+          <a
+            href="picking.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Picking</span>
+          </a>
+          <a
+            href="packing.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-boxes"></i>
+            <span class="sidebar-text">Packing</span>
+          </a>
+          <a
+            href="pallet.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet</span>
+          </a>
+          <a
+            href="pallet_bulider.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet Builder</span>
+          </a>
+          <a
+            href="location.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-geo-alt"></i>
+            <span class="sidebar-text">Expedition</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Delivery-Last Mile</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="my-6 pb-4">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">Setting</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">System Setting</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="flex-1 px-4">
+      <div
+        class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white"
+      >
+        <div>
+          <a
+            href="pharmaScan.html"
+            class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
+            > <i class="bi bi-bag-check mr-2"></i>Product</a
+          >
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="bi bi-bell-fill"></i>
+          <span
+            >John Doe <span class="text-gray-500">Warehouse Manager</span></span
+          >
         </div>
       </div>
-        <div class="container-fluid px-2">
-            <div class="d-flex justify-content-between align-items-center shadow-lg p-4 mx-3 text-primary">
-                <div class="d-flex"> <button class="btn  me-2" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                    <nav class="nav flex-column">
-                        <a href="product.html" class="nav-link bg-primary bg-opacity-25 text-primary fa-2x fw-semibold rounded "><i class="bi bi-bag-check"></i> Product</a>
-                      </nav>
-                </div>
-                <div>
-                    <i class="bi bi-bell-fill"></i>
-                    <span class="ms-2">John Doe <span class="text-muted">Warehouse Manager</span></span>
-                </div>
+
+
+    
+      <div class="bg-white p-4 rounded-lg shadow-lg my-5">
+        <div class="flex flex-wrap">
+         <!-- Left Column -->
+         <div class="w-full lg:w-1/2 p-2 ">
+          <div class="bg-white p-4 rounded shadow">
+            <div class="mb-4">
+              <label class="block text-gray-700">
+                  Upload Image
+              </label>
+              <div class="border rounded p-4 flex justify-center items-center">
+                  <span class="w-[30px] h-[30px] bg-gray-200 rounded flex justify-center items-center">
+                      <i class="bi bi-plus"></i>
+                  </span>
+              </div>
+          </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Size &amp; Weight
+            </label>
+            <div class="grid grid-cols-3 gap-4">
+             <div>
+              <label class="block text-gray-700">
+               Width
+              </label>
+              <input class="w-full border rounded p-2" type="text"/>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Height
+              </label>
+              <input class="w-full border rounded p-2" type="text"/>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Length
+              </label>
+              <input class="w-full border rounded p-2" type="text"/>
+             </div>
             </div>
-            <div class="container-fluid flex my-5">
-                <!-- Main Content -->
-                <div class="container-fluid">
-                 <div class="flex flex-wrap">
-                  <!-- Left Column -->
-                  <div class="w-full lg:w-1/2 ">
-                   <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Upload Image
-                     </label>
-                     <div class="border rounded p-4 flex justify-center items-center">
-                     <span class="w-[30px] h-[30px] bg-gray-200  rounded d-flex justify-center align-items-center"><i class="bi bi-plus"></i></span>
-                     </div>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Size &amp; Weight
-                     </label>
-                     <div class="grid grid-cols-3 gap-4">
-                      <div>
-                       <label class="block text-gray-700">
-                        Width
-                       </label>
-                       <input class="w-full border rounded p-2" type="text"/>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Height
-                       </label>
-                       <input class="w-full border rounded p-2" type="text"/>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Length
-                       </label>
-                       <input class="w-full border rounded p-2" type="text"/>
-                      </div>
-                     </div>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Shipping
-                     </label>
-                     <div class="grid grid-cols-2 gap-4">
-                      <div>
-                       <label class="block text-gray-700">
-                        Availability
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         None
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Use Box
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         Any
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Ship From
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         St. Albans to Denmark
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Quantity Shipped Per Box
-                       </label>
-                       <input class="w-full border rounded p-2" type="text"/>
-                      </div>
-                     </div>
-                    </div>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Shipping
+            </label>
+            <div class="grid grid-cols-2 gap-4">
+             <div>
+              <label class="block text-gray-700">
+               Availability
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                None
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Use Box
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                Any
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Ship From
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                St. Albans to Denmark
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Quantity Shipped Per Box
+              </label>
+              <input class="w-full border rounded p-2" type="text"/>
+             </div>
+            </div>
+           </div>
 
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Installation Notes
-                     </label>
-                     <textarea class="w-full border rounded p-2"></textarea>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Comments
-                     </label>
-                     <textarea class="w-full border rounded p-2"></textarea>
-                    </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Installation Notes
+            </label>
+            <textarea class="w-full border rounded p-2"></textarea>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Comments
+            </label>
+            <textarea class="w-full border rounded p-2"></textarea>
+           </div>
 
-                    <div class="mb-4">
-                        <label class="block text-gray-700 my-2">
-                         Upload Barcode
-                        </label>
-                        <div class="row d-flex justify-content-between">
-                            <div class="col-6 border rounded px-2 flex justify-center items-center w-25">
-                                <span class=" bg-gray-200  rounded d-flex justify-center align-items-center"><i class="bi bi-plus"></i></span>
-                            </div>
-                            <div class="col-6 exmp-img">
-                                <img src="./assets/img/barcode.gif" alt="Qrcode" width="25%">
-                            </div>
-                        </div>
-
-                       </div>
-                       <div class="mb-4">
-                        <label class="block text-gray-700 my-2">
-                         Upload Qrcode
-                        </label>
-                        <div class="row d-flex justify-content-between">
-                        <div class="col-6 border rounded p-4 flex justify-center items-center w-25">
-                        <span class="w-[30px] h-[30px] bg-gray-200  rounded d-flex justify-center align-items-center"><i class="bi bi-plus"></i></span>
-                        </div>
-                        <div class="col-6 exmp-img">
-                            <img src="./assets/img/qrcode.png" alt="Qrcode" width="25%">
-                        </div>
-                    </div>
-                       </div>
-
+           <div class="mb-4">
+               <label class="block text-gray-700 my-2">
+                Upload Barcode
+               </label>
+               <div class="row flex justify-between">
+                <div class="border rounded p-4 flex justify-center items-center w-[250px]">
+                  <span class="w-[30px] h-[30px] bg-gray-200 rounded flex justify-center items-center">
+                      <i class="bi bi-plus"></i>
+                  </span>
+              </div>  
+                   <div class="col-6 exmp-img flex justify-center items-center my-2">
+                       <img src="./assets/img/barcode.gif" alt="Qrcode" width="25%">
                    </div>
-                  </div>
-                  <!-- Right Column -->
-                  <div class="w-full lg:w-1/2 p-2">
-                   <div class="bg-white p-4 rounded shadow">
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Name
-                     </label>
-                     <input class="w-full border rounded p-2" type="text"/>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Model
-                     </label>
-                     <input class="w-full border rounded p-2" type="text"/>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Alias
-                     </label>
-                     <input class="w-full border rounded p-2" type="text"/>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      CFOP
-                     </label>
-                     <input class="w-full border rounded p-2" type="text"/>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Description
-                     </label>
-                     <textarea class="w-full border rounded p-2"></textarea>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="mb-4">
-                                <label class="block text-gray-700">
-                                 Barcode
-                                </label>
-                                <input class="w-full border rounded p-2" type="text"/>
-                               </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="mb-4">
-                                <label class="block text-gray-700">
-                                 Invoice Grouping Key
-                                </label>
-                                <input class="w-full border rounded p-2" type="text"/>
-                               </div>
-                        </div>
-                    </div>
-                    
-
-
-
-                    <fieldset>
-                       <div class="row">
-                        <div class="col-2">
-                            <div class="flex items-center mb-4">
-                                <input id="category1" type="checkbox" class="mr-2">
-                                <label for="country-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-700">
-                                  BOM/KIT
-                                </label>
-                              </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="flex items-center mb-4">
-                                <input id="category1" type="checkbox" class="mr-2">
-                                <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
-                                  HAZMAT
-                                </label>
-                              </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="flex items-center mb-4">
-                                <input id="category1" type="checkbox" class="mr-2">
-                                <label for="country-option-3" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
-                                  PHOTOS
-                                </label>
-                              </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="flex items-center mb-4">
-                                <input id="category1" type="checkbox" class="mr-2">
-                                <label for="country-option-4" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
-                                  PRINTS
-                                </label>
-                              </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="flex items-center">
-                                <input id="category1" type="checkbox" class="mr-2">
-                                <label for="option-disabled" class="block ms-2 text-sm font-medium text-gray-300 dark:text-gray-700">
-                                  POSTCARD
-                                </label>
-                              </div>
-                        </div>
-                       </div>
-                      
-                        
-                      
-                   
-                      
-                        
-                      
-                        
-                      
-                 
-                      </fieldset>
-                      
-  
- 
-
-
-                    <div class="row">
-                        <div class="col-3">
-                            <div class="mb-4">
-                                <label class="block text-gray-700">
-                                 Days Active
-                                </label>
-                                <select class="w-full border rounded p-2">
-                                 <option>
-                                  10
-                                 </option>
-                                </select>
-                               </div>
-                        </div>
-                        <div class="col-3 ">
-                            <div class="mb-4">
-                                <label class="block text-gray-700">
-                                 Choose
-                                </label>
-                                <select class="w-full border rounded p-2">
-                                 <option>
-                                  Choose
-                                 </option>
-                                </select>
-                               </div>
-                        </div>
-                        <div class="col-3 d-flex justify-content-center align-items-center">
-                            <div class="mb-4 ">
-                                <a href="#">Add Items</a>
-                               </div>
-                        </div>
-                        <div class="col-3 d-flex align-items-center">
-                            <div class="mb-4 d-flex">
-                                <label class="block text-gray-700">
-                                 Publication
-                                </label>
-                                <input id="category1" type="checkbox" class="mr-2 ms-2">
-                               </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Shipping Form -->
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Shipping
-                     </label>
-                     <div class="grid grid-cols-2 gap-4">
-                      <div>
-                       <label class="block text-gray-700">
-                        Availability
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         None
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Use Box
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         Any
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Ship From
-                       </label>
-                       <select class="w-full border rounded p-2">
-                        <option>
-                         St. Albans to Denmark
-                        </option>
-                       </select>
-                      </div>
-                      <div>
-                       <label class="block text-gray-700">
-                        Quantity Shipped Per Box
-                       </label>
-                       <input class="w-full border rounded p-2" type="text"/>
-                      </div>
-                     </div>
-                    </div>
-                    <div class="mb-4">
-                     <label class="block text-gray-700">
-                      Categories
-                     </label>
-                     <div class="border rounded p-4">
-                        <table class="w-full border-collapse border border-gray-300">
-                            <thead>
-                                <tr class="bg-gray-200">
-                                    <th class="border border-gray-300 px-4 py-2 text-left">Categories</th>
-                                    <th class="border border-gray-300 px-4 py-2 text-left">Sizes</th>
-                                    <th class="border border-gray-300 px-4 py-2 text-left">Colors</th>
-                                    <th class="border border-gray-300 px-4 py-2 text-left">Styles</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category1" type="checkbox" class="mr-2">
-                                            <label for="category1" class="text-gray-700">Allied Health Basics</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="size1" type="checkbox" class="mr-2">
-                                            <label for="size1" class="text-gray-700">S</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="color1" type="checkbox" class="mr-2">
-                                            <label for="color1" class="text-gray-700">Black</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="style1" type="checkbox" class="mr-2">
-                                            <label for="style1" class="text-gray-700">Pullover</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category2" type="checkbox" class="mr-2">
-                                            <label for="category2" class="text-gray-700">Classroom</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="size2" type="checkbox" class="mr-2">
-                                            <label for="size2" class="text-gray-700">M</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="color2" type="checkbox" class="mr-2">
-                                            <label for="color2" class="text-gray-700">White</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="style2" type="checkbox" class="mr-2">
-                                            <label for="style2" class="text-gray-700">Hoodie</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category3" type="checkbox" class="mr-2">
-                                            <label for="category3" class="text-gray-700">Library</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="size3" type="checkbox" class="mr-2">
-                                            <label for="size3" class="text-gray-700">L</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="color3" type="checkbox" class="mr-2">
-                                            <label for="color3" class="text-gray-700">Red</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="style3" type="checkbox" class="mr-2">
-                                            <label for="style3" class="text-gray-700">Zip up</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category4" type="checkbox" class="mr-2">
-                                            <label for="category4" class="text-gray-700">Student & Instructor</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="size4" type="checkbox" class="mr-2">
-                                            <label for="size4" class="text-gray-700">XL</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="color4" type="checkbox" class="mr-2">
-                                            <label for="color4" class="text-gray-700">Blue</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category5" type="checkbox" class="mr-2">
-                                            <label for="category5" class="text-gray-700">Dental Assistant</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <div class="flex items-center">
-                                            <input id="category6" type="checkbox" class="mr-2">
-                                            <label for="category6" class="text-gray-700">Medical Billing</label>
-                                        </div>
-                                    </td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                    <td class="border border-gray-300 px-4 py-2"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-
-
-                    <div class="flex justify-end my-2">
-                     <button class="bg-red-500 text-white px-4 py-2 rounded mr-2">
-                      Cancel
-                     </button>
-                     <button class="bg-green-500 text-white px-4 py-2 rounded">
-                      Save
-                     </button>
-                    </div>
-                   </div>
-                  </div>
-                 </div>
-                </div>
                </div>
-               <div style="margin-top: 50px;"></div>
+
+              </div>
+              <div class="mb-4">
+               <label class="block text-gray-700 my-2">
+                Upload Qrcode
+               </label>
+               <div class="row flex justify-between">
+               <div class="col-6 border rounded p-4 flex justify-center items-center w-25">
+                <div class="border rounded p-4 flex justify-center items-center">
+                  <span class="w-[30px] h-[30px] bg-gray-200 rounded flex justify-center items-center">
+                      <i class="bi bi-plus"></i>
+                  </span>
+              </div>
+               </div>
+               <div class="col-6 flex justify-center items-center exmp-img my-2">
+                   <img src="./assets/img/qrcode.png" alt="Qrcode" width="25%">
+               </div>
+           </div>
+              </div>
+
+          </div>
+         </div>
+         <!-- Right Column -->
+         <div class="w-full lg:w-1/2 p-2">
+          <div class="bg-white p-4 rounded shadow">
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Name
+            </label>
+            <input class="w-full border rounded p-2" type="text"/>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Model
+            </label>
+            <input class="w-full border rounded p-2" type="text"/>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Alias
+            </label>
+            <input class="w-full border rounded p-2" type="text"/>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             CFOP
+            </label>
+            <input class="w-full border rounded p-2" type="text"/>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Description
+            </label>
+            <textarea class="w-full border rounded p-2"></textarea>
+           </div>
+           <div class="row">
+               <div class="col-6">
+                   <div class="mb-4">
+                       <label class="block text-gray-700">
+                        Barcode
+                       </label>
+                       <input class="w-full border rounded p-2" type="text"/>
+                      </div>
+               </div>
+               <div class="col-6">
+                   <div class="mb-4">
+                       <label class="block text-gray-700">
+                        Invoice Grouping Key
+                       </label>
+                       <input class="w-full border rounded p-2" type="text"/>
+                      </div>
+               </div>
+           </div>
+           
+
+
+
+           <fieldset>
+              <div class="row">
+               <div class="col-2">
+                   <div class="flex items-center mb-4">
+                       <input id="category1" type="checkbox" class="mr-2">
+                       <label for="country-option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-700">
+                         BOM/KIT
+                       </label>
+                     </div>
+               </div>
+               <div class="col-2">
+                   <div class="flex items-center mb-4">
+                       <input id="category1" type="checkbox" class="mr-2">
+                       <label for="country-option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
+                         HAZMAT
+                       </label>
+                     </div>
+               </div>
+               <div class="col-2">
+                   <div class="flex items-center mb-4">
+                       <input id="category1" type="checkbox" class="mr-2">
+                       <label for="country-option-3" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
+                         PHOTOS
+                       </label>
+                     </div>
+               </div>
+               <div class="col-2">
+                   <div class="flex items-center mb-4">
+                       <input id="category1" type="checkbox" class="mr-2">
+                       <label for="country-option-4" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-700">
+                         PRINTS
+                       </label>
+                     </div>
+               </div>
+               <div class="col-2">
+                   <div class="flex items-center">
+                       <input id="category1" type="checkbox" class="mr-2">
+                       <label for="option-disabled" class="block ms-2 text-sm font-medium text-gray-300 dark:text-gray-700">
+                         POSTCARD
+                       </label>
+                     </div>
+               </div>
+              </div>
+             
+               
+             
+          
+             
+               
+             
+               
+             
+        
+             </fieldset>
+             
+
+
+
+
+           <div class="row">
+               <div class="col-3">
+                   <div class="mb-4">
+                       <label class="block text-gray-700">
+                        Days Active
+                       </label>
+                       <select class="w-full border rounded p-2">
+                        <option>
+                         10
+                        </option>
+                       </select>
+                      </div>
+               </div>
+               <div class="col-3 ">
+                   <div class="mb-4">
+                       <label class="block text-gray-700">
+                        Choose
+                       </label>
+                       <select class="w-full border rounded p-2">
+                        <option>
+                         Choose
+                        </option>
+                       </select>
+                      </div>
+               </div>
+               <div class="col-3 d-flex justify-content-center align-items-center">
+                   <div class="mb-4 ">
+                       <a href="#">Add Items</a>
+                      </div>
+               </div>
+               <div class="col-3 d-flex align-items-center">
+                   <div class="mb-4 d-flex">
+                       <label class="block text-gray-700">
+                        Publication
+                       </label>
+                       <input id="category1" type="checkbox" class="mr-2 ms-2">
+                      </div>
+               </div>
+           </div>
+
+
+           <!-- Shipping Form -->
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Shipping
+            </label>
+            <div class="grid grid-cols-2 gap-4">
+             <div>
+              <label class="block text-gray-700">
+               Availability
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                None
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Use Box
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                Any
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Ship From
+              </label>
+              <select class="w-full border rounded p-2">
+               <option>
+                St. Albans to Denmark
+               </option>
+              </select>
+             </div>
+             <div>
+              <label class="block text-gray-700">
+               Quantity Shipped Per Box
+              </label>
+              <input class="w-full border rounded p-2" type="text"/>
+             </div>
             </div>
+           </div>
+           <div class="mb-4">
+            <label class="block text-gray-700">
+             Categories
+            </label>
+
+               <table class="w-full bg-white border border-gray-200 rounded-lg my-2 ">
+                   <thead>
+                       <tr class="bg-gray-100 text-left">
+                           <th class="p-2 border-b">Categories</th>
+                           <th class="p-2 border-b">Sizes</th>
+                           <th class="p-2 border-b">Colors</th>
+                           <th class="p-2 border-b">Styles</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category1" type="checkbox" class="mr-2">
+                                   <label for="category1" class="text-gray-700">Allied Health Basics</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="size1" type="checkbox" class="mr-2">
+                                   <label for="size1" class="text-gray-700">S</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="color1" type="checkbox" class="mr-2">
+                                   <label for="color1" class="text-gray-700">Black</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="style1" type="checkbox" class="mr-2">
+                                   <label for="style1" class="text-gray-700">Pullover</label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category2" type="checkbox" class="mr-2">
+                                   <label for="category2" class="text-gray-700">Classroom</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="size2" type="checkbox" class="mr-2">
+                                   <label for="size2" class="text-gray-700">M</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="color2" type="checkbox" class="mr-2">
+                                   <label for="color2" class="text-gray-700">White</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="style2" type="checkbox" class="mr-2">
+                                   <label for="style2" class="text-gray-700">Hoodie</label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category3" type="checkbox" class="mr-2">
+                                   <label for="category3" class="text-gray-700">Library</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="size3" type="checkbox" class="mr-2">
+                                   <label for="size3" class="text-gray-700">L</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="color3" type="checkbox" class="mr-2">
+                                   <label for="color3" class="text-gray-700">Red</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="style3" type="checkbox" class="mr-2">
+                                   <label for="style3" class="text-gray-700">Zip up</label>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category4" type="checkbox" class="mr-2">
+                                   <label for="category4" class="text-gray-700">Student & Instructor</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="size4" type="checkbox" class="mr-2">
+                                   <label for="size4" class="text-gray-700">XL</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="color4" type="checkbox" class="mr-2">
+                                   <label for="color4" class="text-gray-700">Blue</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b"></td>
+                       </tr>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category5" type="checkbox" class="mr-2">
+                                   <label for="category5" class="text-gray-700">Dental Assistant</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b"></td>
+                           <td class="p-2 border-b"></td>
+                           <td class="p-2 border-b"></td>
+                       </tr>
+                       <tr>
+                           <td class="p-2 border-b">
+                               <div class="flex items-center">
+                                   <input id="category6" type="checkbox" class="mr-2">
+                                   <label for="category6" class="text-gray-700">Medical Billing</label>
+                               </div>
+                           </td>
+                           <td class="p-2 border-b"></td>
+                           <td class="p-2 border-b"></td>
+                           <td class="p-2 border-b"></td>
+                       </tr>
+                   </tbody>
+               </table>
+               
+
+
+           <div class="flex justify-end my-2">
+            <button class="bg-red-500 text-white px-4 py-2 rounded mr-2">
+             Cancel
+            </button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded">
+             Save
+            </button>
+           </div>
+
+         </div>
+        </div>
+       </div>
+      </div>
+      <div style="margin-top: 50px;"></div>
+   </div>
+
     <!-- page js  -->
     <script src="./assets/js/main.js "></script>
-
-</body>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,309 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMS Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <!-- page style css -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- page style css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-<body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div
-        id="sidebar"
-        class="sidebar bg-gray-100 p-3 h-screen w-64 transition-all flex flex-col justify-between"
-      >
-        <!-- Top Section -->
-        <div>
-          <div class="flex justify-between items-center">
-            <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-              <i class="bi bi-box-seam"></i>
-              <span class="sidebar-text">WMS</span>
-            </h4>
-            <button
-              class="mb-4"
-              id="toggle-btn"
-              onclick="toggleSidebar()"
-              class="p-2 bg-gray-200 rounded-full transition-transform"
-            >
-              <i class="bi bi-chevron-left"></i>
-            </button>
-          </div>
-  
-          <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-          <nav class="flex flex-col">
-            <a
-              href="index.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-archive"></i>
-              <span class="sidebar-text">Inventory Management</span>
-            </a>
-            <a
-              href="pharmaScan.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-upc-scan"></i>
-              <span class="sidebar-text">PharmaScan</span>
-            </a>
-            <a
-              href="product.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Product</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-truck"></i>
-              <span class="sidebar-text">Pre-Receiving</span>
-            </a>
-            <a
-              href="receiving.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-down"></i>
-              <span class="sidebar-text">Receiving</span>
-            </a>
-            <a
-              href="put_away.html"
-              class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
-            >
-              <i class="bi bi-arrow-down-up"></i>
-              <span class="sidebar-text">Put-away</span>
-            </a>
-            <a
-              href="order.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-0-circle"></i>
-              <span class="sidebar-text">Order</span>
-            </a>
-            <a
-              href="picking.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Picking</span>
-            </a>
-            <a
-              href="packing.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-boxes"></i>
-              <span class="sidebar-text">Packing</span>
-            </a>
-            <a
-              href="pallet.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet</span>
-            </a>
-            <a
-              href="pallet_bulider.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-box-arrow-in-up"></i>
-              <span class="sidebar-text">Pallet Builder</span>
-            </a>
-            <a
-              href="location.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-geo-alt"></i>
-              <span class="sidebar-text">Expedition</span>
-            </a>
-            <a
-              href="shipment.html"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-cart-check"></i>
-              <span class="sidebar-text">Shipment</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-bag-check"></i>
-              <span class="sidebar-text">Delivery-Last Mile</span>
-            </a>
-          </nav>
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between"
+    >
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="bi bi-box-seam"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            class="mb-4"
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
         </div>
-  
-        <!-- Bottom Section (Settings Links) -->
-        <div class="mt-auto">
-          <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
-          <nav class="flex flex-col">
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">Setting</span>
-            </a>
-            <a
-              href="#"
-              class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
-            >
-              <i class="bi bi-gear"></i>
-              <span class="sidebar-text">System Setting</span>
-            </a>
-          </nav>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-upc-scan"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="receiving.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-down"></i>
+            <span class="sidebar-text">Receiving</span>
+          </a>
+          <a
+            href="put_away.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-arrow-down-up"></i>
+            <span class="sidebar-text">Put-away</span>
+          </a>
+          <a
+            href="order.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-0-circle"></i>
+            <span class="sidebar-text">Order</span>
+          </a>
+          <a
+            href="picking.html"
+            class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Picking</span>
+          </a>
+          <a
+            href="packing.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-boxes"></i>
+            <span class="sidebar-text">Packing</span>
+          </a>
+          <a
+            href="pallet.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet</span>
+          </a>
+          <a
+            href="pallet_bulider.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet Builder</span>
+          </a>
+          <a
+            href="location.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-geo-alt"></i>
+            <span class="sidebar-text">Expedition</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Delivery-Last Mile</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="my-6">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">Setting</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">System Setting</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+    <div class="flex-1 px-4">
+      <div
+        class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white"
+      >
+        <div>
+          <a
+            href="shipment.html"
+            class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
+            ><i class="bi bi-arrow-down-up mr-2"></i>Put Away</a
+          >
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="bi bi-bell-fill"></i>
+          <span
+            >John Doe <span class="text-gray-500">Warehouse Manager</span></span
+          >
         </div>
       </div>
-        <div class="container-fluid px-4">
-            <div class="d-flex justify-content-between align-items-center shadow-lg p-2 text-primary mx-2">
-                <div class="d-flex"> <button class="btn" data-bs-toggle="collapse" data-bs-target="#sidebar">
-                    <nav class="nav flex-column">
-                        <a href="put_away.html" class="bg-blue-100 text-blue-700 px-4 py-4 rounded-lg font-semibold fa-2x"><i class="bi bi-arrow-down-up"></i> Put-away</a>
-                      </nav>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i class="bi bi-bell-fill"></i>
-                  <span
-                    >John Doe <span class="text-gray-500">Warehouse Manager</span></span
-                  >
-                </div>
-              </div>
-            <div class="container-fluid">
-                <div class="bg-white p-6 rounded-lg shadow-lg my-4">
-                    <div class="flex justify-between items-center mb-4">
-                        <div>
-                            <p class="text-gray-600">Assign storage locations to received inventory items</p>
-                        </div>
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-file-alt mr-2"></i> Generate Put-away Report
-                        </button>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div class="bg-blue-100 p-4 rounded-lg flex items-center">
-                            <div class="flex-1">
-                                
-                                <p class="text-blue-700 text-lg font-semibold">Pending Items</p>
-                                <h2 class="text-blue-700 text-2xl font-bold">2</h2>
-                            </div>
-                            <i class="fas fa-box text-blue-500 text-3xl"></i>
-                        </div>
-                        <div class="bg-green-100 p-4 rounded-lg flex items-center">
-                            <div class="flex-1">
-                               
-                                <p class="text-green-700 text-lg font-semibold">Stored Items</p>
-                                <h2 class="text-green-700 text-2xl font-bold">1</h2>
-                            </div>
-                            <i class="fas fa-check-circle text-green-500 text-3xl"></i>
-                        </div>
-                        <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
-                            <div class="flex-1">
-                               
-                                <p class="text-yellow-700 text-lg font-semibold">Quarantined Items</p>
-                                <h2 class="text-yellow-700 text-2xl font-bold">1</h2>
-                            </div>
-                            <i class="fas fa-exclamation-circle text-yellow-500 text-3xl"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label class="block text-gray-700 mb-2">Scan Item for Put-away</label>
-                        <div class="flex">
-                            <input type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Scan or enter item barcode/SKU">
-                            <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-r-lg">Process Item</button>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <input type="text" class="w-full p-2 border rounded-lg" placeholder="Search by SKU or product name">
-                    </div>
-                    <div class="mb-4">
-                        
-                        <ul class="flex border-b mb-3">
-                          <li class="mr-4">
-                            <a
-                              class="inline-block py-2 px-4 text-blue-700 border-b-2 border-blue-700"
-                              href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
-                              href="#"
-                              >Stored</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
-                              href="#"
-                              >All Items</a
-                            >
-                          </li>
-                        </ul>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full bg-white border border-gray-200 rounded-lg">
-                            <thead>
-                                <tr class="bg-gray-100 text-left">
-                                    <th class="p-2 border-b">SKU</th>
-                                    <th class="p-2 border-b">Product Name</th>
-                                    <th class="p-2 border-b">Quantity</th>
-                                    <th class="p-2 border-b">Batch Number</th>
-                                    <th class="p-2 border-b">Status</th>
-                                    <th class="p-2 border-b">Location</th>
-                                    <th class="p-2 border-b">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="p-2 border-b">SKU-001</td>
-                                    <td class="p-2 border-b">Product Alpha</td>
-                                    <td class="p-2 border-b">25</td>
-                                    <td class="p-2 border-b">BATCH-2024-001</td>
-                                    <td class="p-2 border-b">
-                                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Pending</span>
-                                    </td>
-                                    <td class="p-2  border-b">Not assigned</td>
-                                    <td class="p-2 border-b">
-                                        <button class="text-blue-500">Assign Location</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="p-2 border-b">SKU-002</td>
-                                    <td class="p-2 border-b">Product Beta</td>
-                                    <td class="p-2 border-b">15</td>
-                                    <td class="p-2 border-b">BATCH-2024-002</td>
-                                    <td class="p-2 border-b">
-                                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Pending</span>
-                                    </td>
-                                    <td class="p-2 border-b">Not assigned</td>
-                                    <td class="p-2 border-b">
-                                        <button class="text-blue-500">Assign Location</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="mt-4 bg-blue-100 p-4 rounded-lg">
-                        <p class="text-blue-500 flex items-center">
-                            <i class="fas fa-box mr-2"></i> Pending Put-away
-                        </p>
-                        <p class="text-gray-600">There are 2 items pending put-away. Scan items or select from the list above to assign storage locations.</p>
-                    </div>
-                </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-lg my-4">
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <p class="text-gray-600">Assign storage locations to received inventory items</p>
             </div>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
+                <i class="fas fa-file-alt mr-2"></i> Generate Put-away Report
+            </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-blue-100 p-4 rounded-lg flex items-center">
+                <div class="flex-1">
+                    
+                    <p class="text-blue-700 text-lg font-semibold">Pending Items</p>
+                    <h2 class="text-blue-700 text-2xl font-bold">2</h2>
+                </div>
+                <i class="fas fa-box text-blue-500 text-3xl"></i>
+            </div>
+            <div class="bg-green-100 p-4 rounded-lg flex items-center">
+                <div class="flex-1">
+                   
+                    <p class="text-green-700 text-lg font-semibold">Stored Items</p>
+                    <h2 class="text-green-700 text-2xl font-bold">1</h2>
+                </div>
+                <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+            </div>
+            <div class="bg-yellow-100 p-4 rounded-lg flex items-center">
+                <div class="flex-1">
+                   
+                    <p class="text-yellow-700 text-lg font-semibold">Quarantined Items</p>
+                    <h2 class="text-yellow-700 text-2xl font-bold">1</h2>
+                </div>
+                <i class="fas fa-exclamation-circle text-yellow-500 text-3xl"></i>
+            </div>
+        </div>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Scan Item for Put-away</label>
+            <div class="flex">
+                <input type="text" class="flex-1 p-2 border rounded-l-lg" placeholder="Scan or enter item barcode/SKU">
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-r-lg">Process Item</button>
+            </div>
+        </div>
+        <div class="mb-4">
+            <input type="text" class="w-full p-2 border rounded-lg" placeholder="Search by SKU or product name">
+        </div>
+        <div class="mb-4">
             
+            <ul class="flex border-b mb-3">
+              <li class="mr-4">
+                <a
+                  class="inline-block py-2 px-4 text-blue-700 border-b-2 border-blue-700"
+                  href="#"
+                  >Pending</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
+                  href="#"
+                  >Stored</a
+                >
+              </li>
+              <li>
+                <a
+                  class="inline-block py-2 px-4 text-gray-600 hover:text-blue-700"
+                  href="#"
+                  >All Items</a
+                >
+              </li>
+            </ul>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full bg-white border border-gray-200 rounded-lg">
+                <thead>
+                    <tr class="bg-gray-100 text-left">
+                        <th class="p-2 border-b">SKU</th>
+                        <th class="p-2 border-b">Product Name</th>
+                        <th class="p-2 border-b">Quantity</th>
+                        <th class="p-2 border-b">Batch Number</th>
+                        <th class="p-2 border-b">Status</th>
+                        <th class="p-2 border-b">Location</th>
+                        <th class="p-2 border-b">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2 border-b">SKU-001</td>
+                        <td class="p-2 border-b">Product Alpha</td>
+                        <td class="p-2 border-b">25</td>
+                        <td class="p-2 border-b">BATCH-2024-001</td>
+                        <td class="p-2 border-b">
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Pending</span>
+                        </td>
+                        <td class="p-2  border-b">Not assigned</td>
+                        <td class="p-2 border-b">
+                            <button class="text-blue-500">Assign Location</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-2 border-b">SKU-002</td>
+                        <td class="p-2 border-b">Product Beta</td>
+                        <td class="p-2 border-b">15</td>
+                        <td class="p-2 border-b">BATCH-2024-002</td>
+                        <td class="p-2 border-b">
+                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">Pending</span>
+                        </td>
+                        <td class="p-2 border-b">Not assigned</td>
+                        <td class="p-2 border-b">
+                            <button class="text-blue-500">Assign Location</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-4 bg-blue-100 p-4 rounded-lg">
+            <p class="text-blue-500 flex items-center">
+                <i class="fas fa-box mr-2"></i> Pending Put-away
+            </p>
+            <p class="text-gray-600">There are 2 items pending put-away. Scan items or select from the list above to assign storage locations.</p>
+        </div>
     </div>
+
     <!-- page js  -->
     <script src="./assets/js/main.js "></script>
-</body>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
