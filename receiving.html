@@ -19,11 +19,11 @@
     <!-- page style css -->
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
-  <body class="flex">
+  <body class="flex flex-col sm:flex-row min-h-screen bg-gray-50">
     <!-- Sidebar -->
     <div
       id="sidebar"
-      class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between"
+      class="sidebar bg-gray-100 p-3 h-screen fixed sm:relative w-full sm:w-64 transition-all flex flex-col justify-between transform -translate-x-full sm:translate-x-0 z-50"
     >
       <!-- Top Section -->
       <div>
@@ -33,10 +33,9 @@
             <span class="sidebar-text">WMS</span>
           </h4>
           <button
-            class="mb-4"
             id="toggle-btn"
             onclick="toggleSidebar()"
-            class="p-2 bg-gray-200 rounded-full transition-transform"
+            class="p-2 bg-gray-200 rounded-full transition-transform sm:hidden"
           >
             <i class="bi bi-chevron-left"></i>
           </button>
@@ -167,18 +166,28 @@
       </div>
     </div>
 
-    <div class="flex-1 px-4">
+    <!-- Main Content -->
+    <div class="flex-1 px-4 w-full">
+      <!-- Header -->
       <div
-        class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white"
+        class="flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-lg p-4 sm:p-6 bg-white"
       >
-        <div>
+        <div class="flex items-center w-full sm:w-auto justify-between sm:justify-start">
           <a
             href="receiving.html"
-            class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
-            ><i class="bi bi-box-arrow-in-down mr-2"></i>Receiving</a
+            class="bg-blue-100 text-blue-700 px-4 sm:px-6 py-2 sm:py-4 rounded-lg font-semibold text-base sm:text-lg"
           >
+            <i class="bi bi-box-arrow-in-down mr-2"></i>Receiving
+          </a>
+          <button
+            id="mobile-menu-btn"
+            class="sm:hidden p-2 bg-gray-200 rounded-full"
+            onclick="toggleSidebar()"
+          >
+            <i class="bi bi-list"></i>
+          </button>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 mt-4 sm:mt-0">
           <i class="bi bi-bell-fill"></i>
           <span
             >John Doe <span class="text-gray-500">Warehouse Manager</span></span
@@ -186,15 +195,17 @@
         </div>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-lg my-5">
-        <div class="flex justify-between items-center mb-4">
-          <div class="flex gap-3">
+      <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg my-5">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-4 sm:space-y-0">
+          <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <button
-              class="btn bg-white text-gray-700 border border-gray-300 rounded-lg px-4 py-2"
+              class="btn bg-white text-gray-700 border border-gray-300 rounded-lg px-4 py-2 w-full sm:w-auto"
             >
               <i class="fas fa-plus mr-2"></i> New Shipment
             </button>
-            <button class="btn bg-blue-600 text-white rounded-lg px-4 py-2">
+            <button
+              class="btn bg-blue-600 text-white rounded-lg px-4 py-2 w-full sm:w-auto"
+            >
               <i class="fas fa-barcode mr-2"></i> Scan Shipment
             </button>
           </div>
@@ -202,130 +213,144 @@
         <p class="text-gray-500 mb-4">
           Manage incoming shipments and verify inventory
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-          <div class="bg-blue-100 p-4 rounded-lg flex">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+          <div class="bg-blue-100 p-4 rounded-lg flex items-center justify-between">
             <div>
               <p class="text-blue-700 text-lg font-semibold">All Shipments</p>
               <p class="text-blue-700 text-2xl font-bold">5</p>
             </div>
-            <i class="fas fa-box text-blue-600 text-3xl ml-4"></i>
+            <i class="fas fa-box text-blue-600 text-3xl"></i>
           </div>
-          <div class="bg-yellow-100 p-4 rounded-lg flex">
+          <div class="bg-yellow-100 p-4 rounded-lg flex items-center justify-between">
             <div>
               <p class="text-yellow-700 text-lg font-semibold">Pending</p>
               <p class="text-yellow-700 text-2xl font-bold">2</p>
             </div>
             <i
-              class="fas fa-exclamation-triangle text-yellow-600 text-3xl ml-4"
+              class="fas fa-exclamation-triangle text-yellow-600 text-3xl"
             ></i>
           </div>
-          <div class="bg-blue-100 p-4 rounded-lg flex">
+          <div class="bg-blue-100 p-4 rounded-lg flex items-center justify-between">
             <div>
               <p class="text-blue-700 text-lg font-semibold">In Progress</p>
               <p class="text-blue-700 text-2xl font-bold">1</p>
             </div>
-            <i class="fas fa-truck text-blue-600 text-3xl ml-4"></i>
+            <i class="fas fa-truck text-blue-600 text-3xl"></i>
           </div>
-          <div class="bg-red-100 p-4 rounded-lg flex">
+          <div class="bg-red-100 p-4 rounded-lg flex items-center justify-between">
             <div>
               <p class="text-red-700 text-lg font-semibold1">Issues</p>
               <p class="text-red-700 text-2xl font-bold">1</p>
             </div>
-            <i class="fas fa-times-circle text-red-600 text-3xl ml-4"></i>
+            <i class="fas fa-times-circle text-red-600 text-3xl"></i>
           </div>
         </div>
-        <ul class="flex space-x-4 mb-3">
-          <li>
-            <a class="text-blue-600 border-b-2 border-blue-600 pb-1" href="#"
-              >Expected Shipments</a
-            >
-          </li>
-          <li>
-            <a class="text-gray-500 hover:text-blue-600 pb-1" href="#"
-              >Shipment History</a
-            >
-          </li>
-        </ul>
         <div class="overflow-x-auto">
-          <table class="w-full bg-white border border-gray-200 rounded-lg">
-            <thead class="bg-gray-100 text-left">
-              <tr>
-                <th class="p-2 border-b">Shipment ID</th>
-                <th class="p-2 border-b">Invoice #</th>
-                <th class="p-2 border-b">Supplier</th>
-                <th class="p-2 border-b">Expected Date</th>
-                <th class="p-2 border-b">Items</th>
-                <th class="p-2 border-b">Status</th>
-                <th class="p-2 border-b">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="p-2 border-b">SHP-2024-0042</td>
-                <td class="p-2 border-b">INV-78945</td>
-                <td class="p-2 border-b">Tech Components Inc.</td>
-                <td class="p-2 border-b">2024-06-10</td>
-                <td class="p-2 border-b">25</td>
-                <td class="p-2 border-b">
-                  <span
-                    class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-sm"
-                    >In Progress</span
-                  >
-                </td>
-                <td class="p-2 border-b">
-                  <button class="text-blue-600 hover:underline">Process</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-2 border-b">SHP-2024-0043</td>
-                <td class="p-2 border-b">INV-78946</td>
-                <td class="p-2 border-b">Global Manufacturing Ltd.</td>
-                <td class="p-2 border-b">2024-06-12</td>
-                <td class="p-2 border-b">18</td>
-                <td class="p-2 border-b">
-                  <span
-                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
-                    >Pending</span
-                  >
-                </td>
-                <td class="p-2 border-b">
-                  <button class="text-blue-600 hover:underline">Process</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-2 border-b">SHP-2024-0044</td>
-                <td class="p-2 border-b">INV-78950</td>
-                <td class="p-2 border-b">Quality Parts Co.</td>
-                <td class="p-2 border-b">2024-06-15</td>
-                <td class="p-2 border-b">32</td>
-                <td class="p-2 border-b">
-                  <span
-                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
-                    >Pending</span
-                  >
-                </td>
-                <td class="p-2 border-b">
-                  <button class="text-blue-600 hover:underline">Process</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="p-2 border-b">SHP-2024-0041</td>
-                <td class="p-2 border-b">INV-78940</td>
-                <td class="p-2 border-b">Industrial Supplies Inc.</td>
-                <td class="p-2 border-b">2024-06-09</td>
-                <td class="p-2 border-b">22</td>
-                <td class="p-2 border-b">
-                  <span
-                    class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm"
-                    >Issue</span
-                  >
-                </td>
-                <td class="p-2 border-b">
-                  <button class="text-blue-600 hover:underline">Process</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <ul class="flex space-x-4 mb-3 whitespace-nowrap">
+            <li>
+              <a
+                class="text-blue-600 border-b-2 border-blue-600 pb-1 inline-block"
+                href="#"
+                >Expected Shipments</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-gray-500 hover:text-blue-600 pb-1 inline-block"
+                href="#"
+                >Shipment History</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="overflow-x-auto">
+          <div class="inline-block min-w-full align-middle">
+            <div class="overflow-hidden border rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-100 text-left">
+                  <tr>
+                    <th class="p-2 border-b">Shipment ID</th>
+                    <th class="p-2 border-b">Invoice #</th>
+                    <th class="p-2 border-b">Supplier</th>
+                    <th class="p-2 border-b">Expected Date</th>
+                    <th class="p-2 border-b">Items</th>
+                    <th class="p-2 border-b">Status</th>
+                    <th class="p-2 border-b">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="p-2 border-b">SHP-2024-0042</td>
+                    <td class="p-2 border-b">INV-78945</td>
+                    <td class="p-2 border-b">Tech Components Inc.</td>
+                    <td class="p-2 border-b">2024-06-10</td>
+                    <td class="p-2 border-b">25</td>
+                    <td class="p-2 border-b">
+                      <span
+                        class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-sm"
+                        >In Progress</span
+                      >
+                    </td>
+                    <td class="p-2 border-b">
+                      <button class="text-blue-600 hover:underline">Process</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border-b">SHP-2024-0043</td>
+                    <td class="p-2 border-b">INV-78946</td>
+                    <td class="p-2 border-b">Global Manufacturing Ltd.</td>
+                    <td class="p-2 border-b">2024-06-12</td>
+                    <td class="p-2 border-b">18</td>
+                    <td class="p-2 border-b">
+                      <span
+                        class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
+                        >Pending</span
+                      >
+                    </td>
+                    <td class="p-2 border-b">
+                      <button class="text-blue-600 hover:underline">Process</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border-b">SHP-2024-0044</td>
+                    <td class="p-2 border-b">INV-78950</td>
+                    <td class="p-2 border-b">Quality Parts Co.</td>
+                    <td class="p-2 border-b">2024-06-15</td>
+                    <td class="p-2 border-b">32</td>
+                    <td class="p-2 border-b">
+                      <span
+                        class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
+                        >Pending</span
+                      >
+                    </td>
+                    <td class="p-2 border-b">
+                      <button class="text-blue-600 hover:underline">Process</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border-b">SHP-2024-0041</td>
+                    <td class="p-2 border-b">INV-78940</td>
+                    <td class="p-2 border-b">Industrial Supplies Inc.</td>
+                    <td class="p-2 border-b">2024-06-09</td>
+                    <td class="p-2 border-b">22</td>
+                    <td class="p-2 border-b">
+                      <span
+                        class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm"
+                        >Issue</span
+                      >
+                    </td>
+                    <td class="p-2 border-b">
+                      <button class="text-blue-600 hover:underline">Process</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Small screen indicator -->
+          <div class="mt-2 text-sm text-gray-500 italic block sm:hidden">
+            Scroll horizontally to view more columns
+          </div>
         </div>
         <div class="mt-4 bg-blue-100 p-4 rounded-lg">
           <p class="text-blue-600 mb-1">
@@ -340,5 +365,11 @@
     </div>
     <!-- page js  -->
     <script src="./assets/js/main.js "></script>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('-translate-x-full');
+      }
+    </script>
   </body>
 </html>
