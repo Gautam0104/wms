@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMS Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+<body class="flex">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between">
+        <!-- Top Section -->
+        <div>
+            <div class="flex justify-between items-center">
+                <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+                    <i class="bi bi-box-seam"></i>
+                    <span class="sidebar-text">WMS</span>
+                </h4>
+                <button class="mb-4" id="toggle-btn" onclick="toggleSidebar()" class="p-2 bg-gray-200 rounded-full transition-transform">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+            </div>
+
+            <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+            <nav class="flex flex-col">
+                <a href="index.html" class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2">
+                    <i class="bi bi-archive"></i>
+                    <span class="sidebar-text">Inventory Management</span>
+                </a>
+                <a href="receiving.html" class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2">
+                    <i class="bi bi-box-arrow-in-down"></i>
+                    <span class="sidebar-text">Receiving</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="flex-1 px-4">
+        <div class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white">
+            <div>
+                <a href="receiving.html" class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x">
+                    <i class="bi bi-box-arrow-in-down mr-2"></i>Invoice Form
+                </a>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="bi bi-bell-fill"></i>
+                <span>John Doe <span class="text-gray-500">Warehouse Manager</span></span>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg my-5">
+            <div class="space-y-6">
+                <!-- Fornecedor Section -->
+                <div class="border rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Fornecedor</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Fornecedor:</label>
+                            <select class="w-full p-2 border rounded-lg bg-gray-50">
+                                <option>Fornecedor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">NF:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="12345">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Série:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="ABCD">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Emissão:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Dt.Saída:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Hr.Saída:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="HH:MM">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Dt. Rcbto:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operação Section -->
+                <div class="border rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Operação</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">CFOP:</label>
+                            <select class="w-full p-2 border rounded-lg bg-gray-50">
+                                <option>4-digit numeric</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Chave de Acesso:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Protocolo:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Fatura:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cálculo do Imposto Section -->
+                <div class="border rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Cálculo do Imposto</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Base ICMS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Valor ICMS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Base ICMSST:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Valor ICMSST:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Valor IPI:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Total Produtos:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Frete:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Seguro:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Desconto:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Despesas:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Total NF:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Serviços:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Base ISS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Valor ISS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">PIS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">COFINS:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transportadora Section -->
+                <div class="border rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Transportadora / Volumes Transportados</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Transportadora:</label>
+                            <select class="w-full p-2 border rounded-lg bg-gray-50">
+                                <option>Transportadora</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Frete:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">ANTT:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Placa:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">UF:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Qtde:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Espécie:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Marca:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Numeração:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">P.Bruto:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">P.Líquido:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Endereço:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Cidade:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">UF:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dados Adicionais Section -->
+                <div class="border rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Dados Adicionais</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Info Complementar:</label>
+                            <input type="text" class="w-full p-2 border rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex justify-end gap-4 mt-6 pt-4 border-t">
+                <button type="button" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                    <i class="bi bi-x-circle mr-2"></i>Cancelar
+                </button>
+                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <i class="bi bi-plus-circle mr-2"></i>Incluir NF
+                </button>
+            </div>
+        </div>
+
+        <!-- Invoice Table -->
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-lg my-5">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0">
+                <h3 class="text-lg font-semibold text-gray-700">Dados do Produto/Serviço</h3>
+                <div class="flex w-full sm:w-auto gap-2">
+                    <input type="text" placeholder="Search..." class="flex-1 sm:flex-none px-4 py-2 border rounded-lg text-sm">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm">
+                        <i class="bi bi-search mr-2"></i>Search
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative overflow-hidden">
+                <div class="overflow-x-auto border rounded-lg">
+                    <div class="inline-block min-w-full align-middle">
+                        <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="sticky left-0 bg-gray-50 px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cód. Prod</th>
+                                    <th class="sticky left-[100px] bg-gray-50 px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]">Descrição do Produto/Serviço</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NCM/SH</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">O/CST</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CFOP</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unid</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quant.</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor Unit.</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor Total</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BC/ICMS</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor ICMS</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor IPI</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alíq. ICMS</th>
+                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alíq. IPI</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="sticky left-0 bg-white px-3 py-2 whitespace-nowrap text-sm text-gray-900">MEP1764958</td>
+                                    <td class="sticky left-[100px] bg-white px-3 py-2 text-sm text-gray-900">POLYLENZ PR 5 HR - MERC. INT. - BH23KG - P</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">39079949</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">2 41</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">5907</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">KG</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">75.0000</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">80.5070</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">6,038.03</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="sticky left-0 bg-white px-3 py-2 whitespace-nowrap text-sm text-gray-900">MEP1764958</td>
+                                    <td class="sticky left-[100px] bg-white px-3 py-2 text-sm text-gray-900">POLYLENZ PR 5 HR - MERC. INT. - BH23KG - P</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">39079949</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">2 41</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">5907</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">KG</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">225.0000</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">81.0920</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">18,245.70</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Small screen indicator -->
+                <div class="mt-2 text-sm text-gray-500 italic block sm:hidden">
+                    Scroll horizontally to view more columns
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 space-y-2 sm:space-y-0">
+                <div class="text-sm text-gray-700">
+                    Showing <span class="font-medium">1</span> to <span class="font-medium">2</span> of <span class="font-medium">2</span> results
+                </div>
+                <div class="flex gap-2">
+                    <button class="px-3 py-1 border rounded-lg hover:bg-gray-50 text-sm">Previous</button>
+                    <button class="px-3 py-1 border rounded-lg bg-blue-600 text-white text-sm">1</button>
+                    <button class="px-3 py-1 border rounded-lg hover:bg-gray-50 text-sm">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

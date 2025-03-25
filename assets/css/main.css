@@ -24,3 +24,154 @@
 .sidebar.collapsed #toggle-btn i {
     transform: rotate(180deg);
 }
+
+/* Common responsive styles */
+@media (max-width: 640px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 50;
+        width: 100%;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Sidebar transition */
+.sidebar {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Table responsive styles */
+.table-container {
+    position: relative;
+}
+
+.table-scroll-indicator {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .table-scroll-indicator {
+        display: block;
+        position: absolute;
+        bottom: -24px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-style: italic;
+    }
+}
+
+/* Form responsive styles */
+@media (max-width: 640px) {
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-col {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Card grid responsive styles */
+.card-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Button responsive styles */
+@media (max-width: 640px) {
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-group > * {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Header responsive styles */
+@media (max-width: 640px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+/* Utility classes for responsive spacing */
+@media (max-width: 640px) {
+    .space-y-mobile > * + * {
+        margin-top: 1rem;
+    }
+
+    .space-x-mobile > * + * {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.125rem;
+    }
+
+    .text-mobile-sm {
+        font-size: 0.875rem;
+    }
+}
+
+/* Responsive padding/margin */
+@media (max-width: 640px) {
+    .container-mobile {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .section-mobile {
+        margin-bottom: 2rem;
+    }
+}
