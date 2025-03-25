@@ -1,55 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WMS Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-<body class="flex">
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between">
-        <!-- Top Section -->
-        <div>
-            <div class="flex justify-between items-center">
-                <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
-                    <i class="bi bi-box-seam"></i>
-                    <span class="sidebar-text">WMS</span>
-                </h4>
-                <button class="mb-4" id="toggle-btn" onclick="toggleSidebar()" class="p-2 bg-gray-200 rounded-full transition-transform">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-            </div>
 
-            <h6 class="text-gray-500 sidebar-text">MODULES</h6>
-            <nav class="flex flex-col">
-                <a href="index.html" class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2">
-                    <i class="bi bi-archive"></i>
-                    <span class="sidebar-text">Inventory Management</span>
-                </a>
-                <a href="receiving.html" class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2">
-                    <i class="bi bi-box-arrow-in-down"></i>
-                    <span class="sidebar-text">Receiving</span>
-                </a>
-            </nav>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <style></style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- page style css -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <div
+      id="sidebar"
+      class="sidebar bg-gray-100 p-3 h-full w-64 transition-all flex flex-col justify-between"
+    >
+      <!-- Top Section -->
+      <div>
+        <div class="flex justify-between items-center">
+          <h4 class="mb-4 flex items-center gap-2 text-lg font-semibold">
+            <i class="bi bi-box-seam"></i>
+            <span class="sidebar-text">WMS</span>
+          </h4>
+          <button
+            class="mb-4"
+            id="toggle-btn"
+            onclick="toggleSidebar()"
+            class="p-2 bg-gray-200 rounded-full transition-transform"
+          >
+            <i class="bi bi-chevron-left"></i>
+          </button>
         </div>
+
+        <h6 class="text-gray-500 sidebar-text">MODULES</h6>
+        <nav class="flex flex-col">
+          <a
+            href="index.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-archive"></i>
+            <span class="sidebar-text">Inventory Management</span>
+          </a>
+          <a
+            href="pharmaScan.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-upc-scan"></i>
+            <span class="sidebar-text">PharmaScan</span>
+          </a>
+          <a
+            href="product.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Product</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-truck"></i>
+            <span class="sidebar-text">Pre-Receiving</span>
+          </a>
+          <a
+            href="receiving.html"
+            class="nav-link py-2 bg-blue-100 text-blue-700 flex items-center gap-2 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-down"></i>
+            <span class="sidebar-text">Receiving</span>
+          </a>
+          <a
+            href="put_away.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-arrow-down-up"></i>
+            <span class="sidebar-text">Put-away</span>
+          </a>
+          <a
+            href="order.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-0-circle"></i>
+            <span class="sidebar-text">Order</span>
+          </a>
+          <a
+            href="picking.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Picking</span>
+          </a>
+          <a
+            href="packing.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-boxes"></i>
+            <span class="sidebar-text">Packing</span>
+          </a>
+          <a
+            href="pallet.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet</span>
+          </a>
+          <a
+            href="pallet_bulider.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-box-arrow-in-up"></i>
+            <span class="sidebar-text">Pallet Builder</span>
+          </a>
+          <a
+            href="location.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-geo-alt"></i>
+            <span class="sidebar-text">Expedition</span>
+          </a>
+          <a
+            href="shipment.html"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-cart-check"></i>
+            <span class="sidebar-text">Shipment</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-bag-check"></i>
+            <span class="sidebar-text">Delivery-Last Mile</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Section (Settings Links) -->
+      <div class="my-6">
+        <h6 class="text-gray-500 sidebar-text">SETTINGS</h6>
+        <nav class="flex flex-col">
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">Setting</span>
+          </a>
+          <a
+            href="#"
+            class="nav-link py-2 flex items-center gap-2 hover:bg-gray-200 rounded px-2"
+          >
+            <i class="bi bi-gear"></i>
+            <span class="sidebar-text">System Setting</span>
+          </a>
+        </nav>
+      </div>
     </div>
 
     <div class="flex-1 px-4">
-        <div class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white">
-            <div>
-                <a href="receiving.html" class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x">
-                    <i class="bi bi-box-arrow-in-down mr-2"></i>Invoice Form
-                </a>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="bi bi-bell-fill"></i>
-                <span>John Doe <span class="text-gray-500">Warehouse Manager</span></span>
-            </div>
+      <div
+        class="flex justify-between items-center shadow-lg p-6 text-blue-700 bg-white"
+      >
+        <div>
+          <a
+            href="receiving.html"
+            class="bg-blue-100 text-blue-700 px-6 py-4 rounded-lg font-semibold fa-2x"
+            ><i class="bi bi-box-arrow-in-down mr-2"></i>Receiving</a
+          >
         </div>
+        <div class="flex items-center gap-2">
+          <i class="bi bi-bell-fill"></i>
+          <span
+            >John Doe <span class="text-gray-500">Warehouse Manager</span></span
+          >
+        </div>
+      </div>
 
         <div class="bg-white p-6 rounded-lg shadow-lg my-5">
             <div class="space-y-6">
@@ -265,11 +400,11 @@
             
             <!-- Action Buttons -->
             <div class="flex justify-end gap-4 mt-6 pt-4 border-t">
-                <button type="button" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
-                    <i class="bi bi-x-circle mr-2"></i>Cancelar
+                <button type="button" class="bg-red-500 text-white px-4 py-2 rounded mr-2">
+                    Cancelar
                 </button>
-                <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    <i class="bi bi-plus-circle mr-2"></i>Incluir NF
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">
+                    Incluir NF
                 </button>
             </div>
         </div>
@@ -292,54 +427,66 @@
                         <table class="min-w-full divide-y divide-gray-200 table-fixed">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="sticky left-0 bg-gray-50 px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cód. Prod</th>
-                                    <th class="sticky left-[100px] bg-gray-50 px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]">Descrição do Produto/Serviço</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">NCM/SH</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">O/CST</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CFOP</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unid</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quant.</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor Unit.</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor Total</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">BC/ICMS</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor ICMS</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor IPI</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alíq. ICMS</th>
-                                    <th class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alíq. IPI</th>
+                                    <th class="p-2 border-b">Cód. Prod</th>
+                                    <th class="p-2 border-b">Descrição do Produto/Serviço</th>
+                                    <th class="p-2 border-b">NCM SH</th>
+                                    <th class="p-2 border-b">OCST</th>
+                                    <th class="p-2 border-b">CFOP</th>
+                                    <th class="p-2 border-b">UNID</th>
+                                    <th class="p-2 border-b">QUANT.</th>
+                                    <th class="p-2 border-b">VALOR UNITARIO</th>
+                                    <th class="p-2 border-b">VALOR TOTAL</th>
+                                    <th class="p-2 border-b">B CALC ICMS</th>
+                                    <th class="p-2 border-b">VALOR ICMS</th>
+                                    <th class="p-2 border-b">VALOR IPI</th>
+                                    <th colspan="2" cclass="p-2 border-b">
+                                        ALIQUOTAS
+                                    </th>
+                                    <th class="p-2 border-b">VALOR APROX DOS TRIBUTOS</th>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <th colspan="12" class="border-b"></th>
+                                    <th class="p-2 border-b">ICMS</th>
+                                    <th class="p-2 border-b">IPI</th>
+                                    <th class="border-b"></th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <tr>
-                                    <td class="sticky left-0 bg-white px-3 py-2 whitespace-nowrap text-sm text-gray-900">MEP1764958</td>
-                                    <td class="sticky left-[100px] bg-white px-3 py-2 text-sm text-gray-900">POLYLENZ PR 5 HR - MERC. INT. - BH23KG - P</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">39079949</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">2 41</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">5907</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">KG</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">75.0000</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">80.5070</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">6,038.03</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="p-2 border-b">MEP1764958 <br> AB000</td>
+                                    <td class="p-2 border-b">POLYLENZ PR 5 HR - MERC.INT.- BH23KG - P <br> ESO BRUTO 416,00K <br>
+                                    Lote:4864700198-25KG Val: 2026-07-16</td>
+                                    <td class="p-2 border-b">39079949</td>
+                                    <td class="p-2 border-b">2 41</td>
+                                    <td class="p-2 border-b">5907</td>
+                                    <td class="p-2 border-b">KG</td>
+                                    <td class="p-2 border-b">75,0000</td>
+                                    <td class="p-2 border-b">80,5070</td>
+                                    <td class="p-2 border-b">6,038.03</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
                                 </tr>
                                 <tr>
-                                    <td class="sticky left-0 bg-white px-3 py-2 whitespace-nowrap text-sm text-gray-900">MEP1764958</td>
-                                    <td class="sticky left-[100px] bg-white px-3 py-2 text-sm text-gray-900">POLYLENZ PR 5 HR - MERC. INT. - BH23KG - P</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">39079949</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">2 41</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">5907</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">KG</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">225.0000</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">81.0920</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">18,245.70</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
-                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">0.00</td>
+                                    <td class="p-2 border-b">MEP1764958 <br> AB000</td>
+                                    <td class="p-2 border-b">POLYLENZ PR 5 HR - MERC.INT.- BH23KG - P <br> ESO BRUTO 416,00K <br>
+                                        Lote:4864700198-25KG Val: 2026-07-16</td>
+                                    <td class="p-2 border-b">39079949</td>
+                                    <td class="p-2 border-b">2 41</td>
+                                    <td class="p-2 border-b">5907</td>
+                                    <td class="p-2 border-b">KG</td>
+                                    <td class="p-2 border-b">225,0000</td>
+                                    <td class="p-2 border-b">81,0920</td>
+                                    <td class="p-2 border-b">18,245.70</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
+                                    <td class="p-2 border-b">0,00</td>
                                 </tr>
                             </tbody>
                         </table>
