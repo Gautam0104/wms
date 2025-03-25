@@ -267,9 +267,10 @@
                 <td class="p-2 border-b">2024-06-10</td>
                 <td class="p-2 border-b">25</td>
                 <td class="p-2 border-b">
-                  <span
-                    class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-sm"
-                    >In Progress</span
+                  <button
+                    class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-sm hover:bg-blue-200 transition-colors"
+                    onclick="openModal()"
+                    >In Progress</button
                   >
                 </td>
                 <td class="p-2 border-b">
@@ -284,9 +285,9 @@
                 <td class="p-2 border-b">2024-06-12</td>
                 <td class="p-2 border-b">18</td>
                 <td class="p-2 border-b">
-                  <span
-                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
-                    >Pending</span
+                  <button
+                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm" onclick="openModal()"
+                    >Pending</button
                   >
                 </td>
                 <td class="p-2 border-b">
@@ -301,9 +302,9 @@
                 <td class="p-2 border-b">2024-06-15</td>
                 <td class="p-2 border-b">32</td>
                 <td class="p-2 border-b">
-                  <span
-                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm"
-                    >Pending</span
+                  <button 
+                    class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full text-sm " onclick="openModal()"
+                    >Pending</button
                   >
                 </td>
                 <td class="p-2 border-b">
@@ -318,9 +319,9 @@
                 <td class="p-2 border-b">2024-06-09</td>
                 <td class="p-2 border-b">22</td>
                 <td class="p-2 border-b">
-                  <span
-                    class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm"
-                    >Issue</span
+                  <button
+                    class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm" onclick="openModal()"
+                    >Issue</button
                   >
                 </td>
                 <td class="p-2 border-b">
@@ -342,7 +343,368 @@
         </div>
       </div>
     </div>
+    <!-- Modal -->
+    <div id="statusModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+      <div class="bg-white rounded-lg w-[90%] max-w-6xl max-h-[90vh] flex flex-col">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center p-6 border-b">
+          <h3 class="text-lg font-semibold text-gray-700">Receiving Form</h3>
+          <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+            <i class="bi bi-x-lg text-2xl"></i>
+          </button>
+        </div>
+
+        <!-- Modal Content - Scrollable -->
+        <div class="flex-1 overflow-y-auto p-6">
+          <div class="space-y-6">
+            <!-- Fornecedor Section -->
+            <div class="border rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">Fornecedor</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Fornecedor:</label>
+                  <select class="w-full p-2 border rounded-lg bg-gray-50">
+                    <option>Fornecedor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">NF:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="12345">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Série:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="ABCD">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Emissão:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Dt.Saída:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Hr.Saída:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="HH:MM">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Dt. Rcbto:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg" placeholder="dd/mm/yyyy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Operação Section -->
+            <div class="border rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">Operação</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">CFOP:</label>
+                  <select class="w-full p-2 border rounded-lg bg-gray-50">
+                    <option>4-digit numeric</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Chave de Acesso:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Protocolo:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Fatura:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+              </div>
+            </div>
+
+            <!-- Cálculo do Imposto Section -->
+            <div class="border rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">Cálculo do Imposto</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Base ICMS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Valor ICMS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Base ICMSST:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Valor ICMSST:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Valor IPI:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Total Produtos:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Frete:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Seguro:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Desconto:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Despesas:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Total NF:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Serviços:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Base ISS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Valor ISS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">PIS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">COFINS:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+              </div>
+            </div>
+
+            <!-- Transportadora Section -->
+            <div class="border rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">Transportadora / Volumes Transportados</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Transportadora:</label>
+                  <select class="w-full p-2 border rounded-lg bg-gray-50">
+                    <option>Transportadora</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Frete:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">ANTT:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Placa:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">UF:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Qtde:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Espécie:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Marca:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Numeração:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">P.Bruto:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">P.Líquido:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Endereço:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Cidade:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">UF:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+              </div>
+            </div>
+
+            <!-- Dados Adicionais Section -->
+            <div class="border rounded-lg p-4">
+              <h3 class="text-lg font-semibold text-gray-700 mb-4">Dados Adicionais</h3>
+              <div class="grid grid-cols-1 gap-4">
+                <div class="form-group">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Info Complementar:</label>
+                  <input type="text" class="w-full p-2 border rounded-lg">
+                </div>
+              </div>
+              <div class="flex justify-end gap-4 p-6 border-t">
+          <button type="button" onclick="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded">
+            Cancelar
+          </button>
+          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">
+            Incluir NF
+          </button>
+        </div>
+            </div>
+            
+            <!-- Products Table -->
+            <div class="border rounded-lg p-4">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 space-y-2 sm:space-y-0">
+                <h3 class="text-lg font-semibold text-gray-700">Dados do Produto/Serviço</h3>
+                <div class="flex w-full sm:w-auto gap-2">
+                  <input type="text" placeholder="Search..." class="flex-1 sm:flex-none px-4 py-2 border rounded-lg text-sm">
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap text-sm">
+                    <i class="bi bi-search mr-2"></i>Search
+                  </button>
+                </div>
+              </div>
+              
+              <div class="relative overflow-hidden">
+                <div class="overflow-x-auto border rounded-lg">
+                  <div class="inline-block min-w-full align-middle">
+                    <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                      <thead class="bg-gray-50">
+                        <tr>
+                          <th class="p-2 border-b">Cód. Prod</th>
+                          <th class="p-2 border-b">Descrição do Produto/Serviço</th>
+                          <th class="p-2 border-b">NCM SH</th>
+                          <th class="p-2 border-b">OCST</th>
+                          <th class="p-2 border-b">CFOP</th>
+                          <th class="p-2 border-b">UNID</th>
+                          <th class="p-2 border-b">QUANT.</th>
+                          <th class="p-2 border-b">VALOR UNITARIO</th>
+                          <th class="p-2 border-b">VALOR TOTAL</th>
+                          <th class="p-2 border-b">B CALC ICMS</th>
+                          <th class="p-2 border-b">VALOR ICMS</th>
+                          <th class="p-2 border-b">VALOR IPI</th>
+                          <th colspan="2" class="p-2 border-b">ALIQUOTAS</th>
+                          <th class="p-2 border-b">VALOR APROX DOS TRIBUTOS</th>
+                        </tr>
+                        <tr class="bg-gray-50">
+                          <th colspan="12" class="border-b"></th>
+                          <th class="p-2 border-b">ICMS</th>
+                          <th class="p-2 border-b">IPI</th>
+                          <th class="border-b"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                          <td class="p-2 border-b">MEP1764958 <br> AB000</td>
+                          <td class="p-2 border-b">POLYLENZ PR 5 HR - MERC.INT.- BH23KG - P <br> ESO BRUTO 416,00K <br>
+                          Lote:4864700198-25KG Val: 2026-07-16</td>
+                          <td class="p-2 border-b">39079949</td>
+                          <td class="p-2 border-b">2 41</td>
+                          <td class="p-2 border-b">5907</td>
+                          <td class="p-2 border-b">KG</td>
+                          <td class="p-2 border-b">75,0000</td>
+                          <td class="p-2 border-b">80,5070</td>
+                          <td class="p-2 border-b">6,038.03</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                        </tr>
+                        <tr>
+                          <td class="p-2 border-b">MEP1764958 <br> AB000</td>
+                          <td class="p-2 border-b">POLYLENZ PR 5 HR - MERC.INT.- BH23KG - P <br> ESO BRUTO 416,00K <br>
+                              Lote:4864700198-25KG Val: 2026-07-16</td>
+                          <td class="p-2 border-b">39079949</td>
+                          <td class="p-2 border-b">2 41</td>
+                          <td class="p-2 border-b">5907</td>
+                          <td class="p-2 border-b">KG</td>
+                          <td class="p-2 border-b">225,0000</td>
+                          <td class="p-2 border-b">81,0920</td>
+                          <td class="p-2 border-b">18,245.70</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                          <td class="p-2 border-b">0,00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pagination -->
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 space-y-2 sm:space-y-0">
+                <div class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">2</span> of <span class="font-medium">2</span> results
+                </div>
+                <div class="flex gap-2">
+                  <button class="px-3 py-1 border rounded-lg hover:bg-gray-50 text-sm">Previous</button>
+                  <button class="px-3 py-1 border rounded-lg bg-blue-600 text-white text-sm">1</button>
+                  <button class="px-3 py-1 border rounded-lg hover:bg-gray-50 text-sm">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex justify-end gap-4 p-6 border-t">
+          <button type="button" onclick="closeModal()" class="bg-blue-500 text-white px-4 py-2 rounded">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
     <!-- page js  -->
-    <script src="./assets/js/main.js "></script>
+    <script src="./assets/js/main.js"></script>
+    <script>
+      function openModal() {
+        document.getElementById('statusModal').classList.remove('hidden');
+        document.getElementById('statusModal').classList.add('flex');
+      }
+
+      function closeModal() {
+        document.getElementById('statusModal').classList.add('hidden');
+        document.getElementById('statusModal').classList.remove('flex');
+      }
+
+      function updateStatus() {
+        // Add your status update logic here
+        closeModal();
+      }
+
+      // Close modal when clicking outside
+      document.getElementById('statusModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+    </script>
   </body>
 </html>
