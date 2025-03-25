@@ -326,10 +326,17 @@
 
           <!-- Cálculo do Imposto Section -->
           <div class="border rounded-lg p-4">
-            <h3 class="text-lg bg-blue-50 font-semibold text-gray-700 mb-4">
+            <h3 class="text-lg bg-blue-50 text-gray-700 mb-4 cursor-pointer flex justify-between items-center" onclick="toggleCálculo()">
               Cálculo do Imposto
+              <i
+                id="Cálculo-icon"
+                class="bi bi-chevron-down transition-transform"
+              ></i>
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+            id="Cálculo-content"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
               <div class="form-group">
                 <label class="block text-sm font-medium text-gray-700 mb-1"
                   >Base ICMS:</label
@@ -431,10 +438,17 @@
 
           <!-- Transportadora Section -->
           <div class="border rounded-lg p-4">
-            <h3 class="text-lg bg-blue-50 font-semibold text-gray-700 mb-4">
+            <h3 class="text-lg bg-blue-50 text-gray-700 mb-4 cursor-pointer flex justify-between items-center" onclick="toggleTransportadora()">
               Transportadora / Volumes Transportados
+              <i
+                id="Transportadora-icon"
+                class="bi bi-chevron-down transition-transform"
+              ></i>
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+            id="Transportadora-content"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
               <div class="form-group">
                 <label class="block text-sm font-medium text-gray-700 mb-1"
                   >Transportadora:</label
@@ -526,10 +540,17 @@
 
           <!-- Dados Adicionais Section -->
           <div class="border rounded-lg p-4">
-            <h3 class="text-lg bg-blue-50 font-semibold text-gray-700 mb-4">
+            <h3 class="text-lg bg-blue-50 text-gray-700 mb-4 cursor-pointer flex justify-between items-center" onclick="toggleDados()">
               Dados Adicionais
+              <i
+                id="Dados-icon"
+                class="bi bi-chevron-down transition-transform"
+              ></i>
             </h3>
-            <div class="grid grid-cols-1 gap-4">
+            <div
+            id="Dados-content"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
               <div class="form-group">
                 <label class="block text-sm font-medium text-gray-700 mb-1"
                   >Info Complementar:</label
@@ -705,6 +726,24 @@
       function toggleOperação() {
         const content = document.getElementById("Operação-content");
         const icon = document.getElementById("Operação-icon");
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      }
+      function toggleCálculo() {
+        const content = document.getElementById("Cálculo-content");
+        const icon = document.getElementById("Cálculo-icon");
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      }
+      function toggleTransportadora() {
+        const content = document.getElementById("Transportadora-content");
+        const icon = document.getElementById("Transportadora-icon");
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      }
+      function toggleDados() {
+        const content = document.getElementById("Dados-content");
+        const icon = document.getElementById("Dados-icon");
         content.classList.toggle("hidden");
         icon.classList.toggle("rotate-180");
       }
